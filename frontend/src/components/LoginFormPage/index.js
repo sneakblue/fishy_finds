@@ -1,12 +1,11 @@
 import { useState } from "react"
 import { login } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 
 export default function LoginFormPage() {
     const dispatch = useDispatch();
-    // const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const [credential, setCredential] = useState('');
     const [password, setPassword] = useState('');
@@ -20,13 +19,6 @@ export default function LoginFormPage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setErrors([]);
-        // let res = dispatch(login({ credential, password }));
-        // if (!res.ok) {
-        //     const data = await res.json();
-        //     if (data && data.errors) setErrors(data.errors);
-        //     return;
-        // };
-        // history.push('/');
         return dispatch(login({ credential, password }))
             .catch(async (res) => {
                 const data = await res.json();
