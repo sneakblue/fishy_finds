@@ -27,7 +27,6 @@ if (process.env.NODE_ENV === 'production') {
 
 if (process.env.NODE_ENV !== 'production') {
     router.get('/api/csrf/restore', (req, res) => {
-        console.log('HEY!!!!');
         res.cookie('XSRF-TOKEN', req.csrfToken());
         res.status(201).json({});
     });
