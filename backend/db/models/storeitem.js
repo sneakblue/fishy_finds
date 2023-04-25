@@ -14,10 +14,26 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   StoreItem.init({
-    name: DataTypes.STRING,
-    price: DataTypes.DOUBLE,
-    description: DataTypes.STRING,
-    details: DataTypes.STRING
+    name: {
+        type: DataTypes.STRING(255),
+        allowNull: false,
+    },
+    price: {
+        type: DataTypes.DOUBLE(5, 2),
+        allowNull: false,
+    },
+    description: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+    },
+    details: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+    },
+    sub_category_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'StoreItem',
