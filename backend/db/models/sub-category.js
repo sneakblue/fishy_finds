@@ -14,7 +14,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Sub - Category.init({
-    title: DataTypes.STRING
+    title: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    category_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'Sub-Category',
