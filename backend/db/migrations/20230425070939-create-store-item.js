@@ -10,24 +10,30 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       price: {
-        type: Sequelize.DOUBLE
+        type: Sequelize.DOUBLE(5, 2),
+        allowNull: false
       },
       description: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT,
+        allowNull: false
       },
       details: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now')
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now')
       }
     });
   },
