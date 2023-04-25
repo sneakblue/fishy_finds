@@ -5,8 +5,15 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class SubCategory extends Model {
         static associate(models) {
-            SubCategory.hasMany(models.StoreItem, { foreignKey: 'sub_category_id', onDelete: 'CASCADE', hooks: true });
+            // SubCategory.hasMany(models.StoreItem, { foreignKey: 'sub_category_id', onDelete: 'CASCADE', hooks: true });
             SubCategory.belongsTo(models.Category, { foreignKey: 'category_id' });
+
+            const columnMapping = {
+                through: 'CategoryItem',
+                otherKey: 'store_item_id',
+                foreignKey: 'sub_category_id'
+            };
+            SubCategory.belongsToMany(models.StoreItem, columnMapping)
         }
   }
   SubCategory.init({

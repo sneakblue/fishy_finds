@@ -14,24 +14,24 @@ module.exports = {
         */
         await queryInterface.bulkInsert('Sub-Categories', [
             {
-                title: '',
-                category_id: 0
+                title: 'Baitcast Reels',
+                category_id: 1
             },
             {
-                title: '',
-                category_id: 0
+                title: 'Spinning Reels',
+                category_id: 1
             },
             {
-                title: '',
-                category_id: 0
+                title: 'Spincast Reels',
+                category_id: 1
             },
             {
-                title: '',
-                category_id: 0
+                title: 'Saltwater Reels',
+                category_id: 1
             },
             {
-                title: '',
-                category_id: 0
+                title: 'Fly Reels',
+                category_id: 1
             },
         ], {});
     },

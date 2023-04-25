@@ -25,13 +25,13 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false
       },
-      sub_category_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'Sub-Categories'
-        }
-      },
+    //   sub_category_id: {
+    //     type: Sequelize.INTEGER,
+    //     allowNull: false,
+    //     references: {
+    //         model: 'Sub-Categories'
+    //     }
+    //   },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
