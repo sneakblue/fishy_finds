@@ -13,6 +13,13 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING(255)
       },
+      category_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'Categories'
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
