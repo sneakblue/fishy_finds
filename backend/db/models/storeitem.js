@@ -4,14 +4,10 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class StoreItem extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
+        static associate(models) {
+            StoreItem.hasMany(models.CartItem, { foreignKey: 'item_id', onDelete: 'CASCADE', hooks: true })
+            StoreItem.belongsTo(models.SubCategory, { foreignKey: 'sub_category_id' })
+        }
   }
   StoreItem.init({
     name: {
@@ -19,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
     },
     price: {
-        type: DataTypes.DOUBLE(5, 2),
+        type: DataTypes.DECIMAL(5, 2),
         allowNull: false,
     },
     description: {

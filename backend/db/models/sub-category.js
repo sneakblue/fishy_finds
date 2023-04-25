@@ -4,18 +4,14 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class SubCategory extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
+        static associate(models) {
+            SubCategory.hasMany(models.StoreItem, { foreignKey: 'sub_category_id', onDelete: 'CASCADE', hooks: true });
+            SubCategory.belongsTo(models.Category, { foreignKey: 'category_id' });
+        }
   }
-  Sub - Category.init({
+  SubCategory.init({
     title: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(255),
         allowNull: false
     },
     category_id: {
@@ -26,5 +22,5 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Sub-Category',
   });
-  return Sub - Category;
+  return SubCategory;
 };
