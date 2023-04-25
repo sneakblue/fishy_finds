@@ -11,11 +11,17 @@ module.exports = {
       },
       sub_category_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+            model: 'Sub-Categories'
+        }
       },
       store_item_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+            model: 'StoreItems'
+        }
       },
       createdAt: {
         allowNull: false,
