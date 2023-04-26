@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    modelName: 'Sub-Category',
+    modelName: 'SubCategory',
   });
   return SubCategory;
 };
