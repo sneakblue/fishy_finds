@@ -12,7 +12,7 @@ module.exports = {
          *   isBetaMember: false
          * }], {});
         */
-        await queryInterface.bulkInsert('Sub-Categories', [
+        await queryInterface.bulkInsert('SubCategories', [
             {
                 title: 'Baitcast Reels',
                 category_id: 1
@@ -43,5 +43,6 @@ module.exports = {
          * Example:
          * await queryInterface.bulkDelete('People', null, {});
          */
+        await queryInterface.bulkDelete('SubCategories', null, {});
     }
 };
