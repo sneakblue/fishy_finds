@@ -11,10 +11,8 @@ const setCategories = (categories) => {
 
 export const getCategories = () => async (dispatch) => {
     const res = await csrfFetch('/api/categories/')
-
     if (res.ok) {
         const categories = await res.json();
-        console.log(categories);
         dispatch(setCategories(categories));
         return categories;
     } else {

@@ -6,15 +6,30 @@ import { Link } from "react-router-dom";
 export default function CategoryCard({ categoryId }) {
 
     const category = useSelector((state) => state.categories[categoryId]);
+    const subCategories = useSelector((state) => Object.values(state.subCategories))
     const [showCategories, setShowCategories] = useState(false);
+
+    let currCategories = [];
+    if (subCategories) {
+        for (let i = 0; i < subCategories.length; i++) {
+            if (subCategories[i].category_id === categoryId) {
+                currCategories.push(subCategories[i]);
+            }
+        }
+    }
 
     let content;
     if (showCategories) {
         content = (
             <>
-                <Link to={`category/${category.id}`}>
+                <Link to={`/category/${category.id}`}>
                     <h5 className="categoryCard_title">{category.title.toUpperCase()}</h5>
                 </Link>
+                {currCategories.map((cat) => (
+                    <Link to={`/subCat/${cat.id}`}>
+                        <p>{cat.title}</p>
+                    </Link>
+                ))}
             </>
         )
     } else {
