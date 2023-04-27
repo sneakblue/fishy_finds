@@ -2,6 +2,7 @@ import {Route, Switch } from 'react-router-dom';
 import SignupFormPage from './components/SignupFormPage';
 import HomePage from './components/HomePage';
 import CategoryPage from './components/CategoryPage';
+import SubCategoryPage from './components/SubCategoryPage';
 import Navigation from './components/Navigation';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -27,6 +28,9 @@ function App() {
                     </Route>
                     <Route path="/category/:id">
                         <CategoryPage />
+                    </Route>
+                    <Route path="/subCat/:id">
+                        <SubCategoryPage />
                     </Route>
                 </Switch>
             )}
