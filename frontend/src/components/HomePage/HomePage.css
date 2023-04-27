@@ -1,0 +1,42 @@
+.homePage_main_div {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    border: 1px solid black;
+}
+
+.categoryCard_main_div {
+    display: flex;
+    align-items: flex-end;
+    background-color: aqua;
+    border: 1px solid black;
+    width: 20%;
+    min-height: 300px;
+    margin: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.categoryCard_titles_background_div {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 5px 10px 5px;
+}
+
+.categoryCard_title {
+    margin: 10px;
+    font-size: 20px;
+    color: whitesmoke;
+}
+
+
+.categoryCards_parent_div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 1px solid black;
+    margin: 20px;
+}
