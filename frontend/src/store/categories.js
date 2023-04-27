@@ -14,6 +14,7 @@ export const getCategories = () => async (dispatch) => {
 
     if (res.ok) {
         const categories = await res.json();
+        console.log(categories);
         dispatch(setCategories(categories));
         return categories;
     } else {
