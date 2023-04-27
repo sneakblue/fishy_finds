@@ -1,0 +1,15 @@
+.loginForm_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.loginForm_input {
+    width: 100%;
+}
+
+#modal-content {
+    border-radius: 5px;
+}
