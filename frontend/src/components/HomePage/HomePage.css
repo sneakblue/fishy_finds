@@ -1,0 +1,53 @@
+.homePage_main_div {
+    display: flex;
+    flex-direction: column;
+    width: 98vw;
+    border: 1px solid black;
+}
+
+.categoryCard_main_div {
+    display: flex;
+    align-items: flex-end;
+    background-color: white;
+    border: 1px solid black;
+    width: 20%;
+    height: 300px;
+    margin: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.categoryCard_titles_background_div {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 0px 10px 0px;
+}
+
+.categoryCard_title {
+    margin: 5px;
+    font-size: 20px;
+    color: whitesmoke;
+}
+
+.subCat_title_link {
+    color: white;
+    width: 100%;
+    padding: 7px;
+    font-size: 13px;
+}
+
+.subCat_title_link:hover {
+    background-color: rgba(0,0,0,0.5);
+}
+
+
+.categoryCards_parent_div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 1px solid black;
+    margin: 20px;
+}

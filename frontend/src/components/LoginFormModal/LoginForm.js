@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { login } from '../../store/session';
 import { useDispatch } from 'react-redux';
+import './LoginFormModal.css';
 
 export default function LoginForm() {
     const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export default function LoginForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='loginForm_container'>
             <ul>
                 {errors.map((error, i) => (
                     <li key={i}>{error}</li>
@@ -28,22 +29,24 @@ export default function LoginForm() {
             </ul>
             <label>
                 Username or email
-                <input
-                    type='text'
-                    value={credential}
-                    onChange={(e) => setCredential(e.target.value)}
-                    required
-                />
             </label>
+            <input
+                type='text'
+                value={credential}
+                onChange={(e) => setCredential(e.target.value)}
+                className='loginForm_input'
+                required
+            />
             <label>
                 Password
-                <input
-                    type='text'
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
             </label>
+            <input
+                type='text'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className='loginForm_input'
+                required
+            />
             <button type="submit">Log In</button>
         </form>
     )
