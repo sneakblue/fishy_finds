@@ -8,7 +8,7 @@
 .categoryCard_main_div {
     display: flex;
     align-items: flex-end;
-    background-color: aqua;
+    background-color: white;
     border: 1px solid black;
     width: 20%;
     min-height: 300px;
@@ -22,13 +22,24 @@
     flex-wrap: wrap;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px 5px 10px 5px;
+    padding: 10px 0px 10px 0px;
 }
 
 .categoryCard_title {
-    margin: 10px;
+    margin: 5px;
     font-size: 20px;
     color: whitesmoke;
+}
+
+.subCat_title_link {
+    color: white;
+    width: 100%;
+    padding: 7px;
+    font-size: 13px;
+}
+
+.subCat_title_link:hover {
+    background-color: rgba(0,0,0,0.5);
 }
 
 

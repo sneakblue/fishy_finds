@@ -15,10 +15,6 @@ export default function HomePage() {
         dispatch(getSubCategories());
     }, [ dispatch ])
 
-    // useEffect(() => {
-
-    // }, [dispatch])
-
 
     return (
         <div className="homePage_main_div">

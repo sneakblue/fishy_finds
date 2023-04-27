@@ -26,7 +26,7 @@ export default function CategoryCard({ categoryId }) {
                     <h5 className="categoryCard_title">{category.title.toUpperCase()}</h5>
                 </Link>
                 {currCategories.map((cat) => (
-                    <Link to={`/subCat/${cat.id}`}>
+                    <Link to={`/subCat/${cat.id}`} className="subCat_title_link">
                         <p>{cat.title}</p>
                     </Link>
                 ))}
