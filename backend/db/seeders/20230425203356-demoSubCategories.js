@@ -33,6 +33,38 @@ module.exports = {
                 title: 'Fly Reels',
                 category_id: 1
             },
+            {
+                title: 'Hard Bait Lures',
+                category_id: 2
+            },
+            {
+                title: 'Soft Bait Lures',
+                category_id: 2
+            },
+            {
+                title: 'Spinnerbaits & Buzzbaits',
+                category_id: 2
+            },
+            {
+                title: 'Bass Jigs',
+                category_id: 2
+            },
+            {
+                title: 'Saltwater Lures',
+                category_id: 2
+            },
+            {
+                title: 'Panfish Lures',
+                category_id: 2
+            },
+            {
+                title: 'Fishing Spoons',
+                category_id: 2
+            },
+            {
+                title: 'Lure Kits',
+                category_id: 2
+            },
         ], {});
     },
 
