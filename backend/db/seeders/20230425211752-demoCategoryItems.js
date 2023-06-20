@@ -28,6 +28,18 @@ module.exports = {
                 sub_category_id: 1,
                 store_item_id: 6
             },
+            {
+                sub_category_id: 2,
+                store_item_id: 7
+            },
+            {
+                sub_category_id: 2,
+                store_item_id: 8
+            },
+            {
+                sub_category_id: 2,
+                store_item_id: 9
+            },
         ], {});
     },
 
