@@ -191,11 +191,11 @@ module.exports = {
             },
             {
                 title: 'Fishing Apparel',
-                category_id: 9
+                category_id: 10
             },
             {
                 title: 'Bowfishing',
-                category_id: 10
+                category_id: 9
             },
         ], {});
     },

@@ -13,6 +13,10 @@ module.exports = {
         type: Sequelize.STRING(255),
         allowNull: false
       },
+      manufacturer: {
+        type: Sequelize.STRING(255),
+        allowNull: false
+      },
       price: {
         type: Sequelize.DECIMAL(5, 2),
         allowNull: false
@@ -24,6 +28,10 @@ module.exports = {
       details: {
         type: Sequelize.TEXT,
         allowNull: false
+      },
+      imageUrl: {
+        type: Sequelize.STRING(255),
+        allowNull: true
       },
       createdAt: {
         allowNull: false,
