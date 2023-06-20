@@ -65,6 +65,38 @@ module.exports = {
                 title: 'Lure Kits',
                 category_id: 2
             },
+            {
+                title: 'Fillet Knives & Tables',
+                category_id: 3
+            },
+            {
+                title: 'Fishing Nets',
+                category_id: 3
+            },
+            {
+                title: 'Bait Buckets & Management',
+                category_id: 3
+            },
+            {
+                title: 'Saltwater Accessories',
+                category_id: 3
+            },
+            {
+                title: 'Rod & Reel Accessories',
+                category_id: 3
+            },
+            {
+                title: 'Rod Holders & Racks',
+                category_id: 3
+            },
+            {
+                title: 'Tools & Pliers',
+                category_id: 3
+            },
+            {
+                title: 'Rulers & Scales',
+                category_id: 3
+            },
         ], {});
     },
 
