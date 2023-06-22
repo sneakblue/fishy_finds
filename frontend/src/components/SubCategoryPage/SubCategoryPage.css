@@ -1,4 +1,13 @@
 .subCategory-main-container--div {
     display: flex;
+    flex-direction: row;
+    width: 98vw;
+    border: 1px solid red;
+}
+
+.subCategory-search-sidebar--div {
+    display: flex;
     flex-direction: column;
+    border: 1px solid black;
+    width: 20%;
 }

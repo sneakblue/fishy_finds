@@ -18,7 +18,7 @@ const setSubCategory = (subCategory) => {
 }
 
 export const getSubCategory = (id) => async (dispatch) => {
-    const res = await csrfFetch(`/api/categories/${id}/sub`)
+    const res = await csrfFetch(`/api/categories/sub/${id}`);
     if (res.ok) {
         const subCategory = await res.json();
         dispatch(setSubCategory(subCategory));
@@ -47,7 +47,8 @@ export default function subCategoriesReducer (state = {}, action) {
         }
         case LOAD_SUB_CATEGORY: {
             newState = {...state};
-            console.log(action.payload)
+            newState[action.payload.id] = action.payload;
+            return newState;
         }
         default:
             return state;
