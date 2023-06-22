@@ -21,8 +21,19 @@ export default function SubCategoryPage () {
             <div className="subCategory-search-sidebar--div">
 
             </div>
-            <div>
-                <h2>{subCategory.title}</h2>
+            <div className="subCategory-items-main--div">
+                <h2>{subCategory?.title}</h2>
+                <div className="subCategory-items-count--div"><h5>{`Results: ${items?.length}`}</h5></div>
+                <div className="subCategory-items-list--div">
+                    {items && (
+                        items.map(item => <div className="subCategory-item-card--div">
+                                <img src={item.imageUrl} className="subCategory-item-card--img"/>
+                                <h6>{item.name}</h6>
+                                <h6>{`$${item.price}`}</h6>
+                            </div>
+                        )
+                    )}
+                </div>
             </div>
         </div>
     )

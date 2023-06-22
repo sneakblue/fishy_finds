@@ -1,7 +1,11 @@
 .subCategory-main-container--div {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    /* align-items: center; */
     width: 98vw;
+    margin: 10px;
+    /* overflow-x: hidden; */
     border: 1px solid red;
 }
 
@@ -10,4 +14,32 @@
     flex-direction: column;
     border: 1px solid black;
     width: 20%;
+}
+
+.subCategory-items-main--div {
+    width: 80%;
+    border: 1px solid green;
+}
+
+.subCategory-items-count--div {
+    border-bottom: 1px solid rgba(red, green, blue, 0.25);
+}
+
+.subCategory-items-list--div {
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.subCategory-item-card--div {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.subCategory-item-card--img {
+    width: 200px;
 }
