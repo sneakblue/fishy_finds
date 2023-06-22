@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getStoreItems } from "../../store/storeItems";
 import { getSubCategory } from "../../store/subCategories";
 import './SubCategoryPage.css';
@@ -26,10 +26,16 @@ export default function SubCategoryPage () {
                 <div className="subCategory-items-count--div"><h5>{`Results: ${items?.length}`}</h5></div>
                 <div className="subCategory-items-list--div">
                     {items && (
-                        items.map(item => <div className="subCategory-item-card--div">
+                        items.map(item => <div className="subCategory-item-card--div" key={item.id}>
                                 <img src={item.imageUrl} className="subCategory-item-card--img"/>
-                                <h6>{item.name}</h6>
-                                <h6>{`$${item.price}`}</h6>
+                                <div className="subCategory-item-card-details--div">
+                                    <div className="subCategory-item-card-name--div">
+                                        <p>{item.name}</p>
+                                    </div>
+                                    <div>
+                                        <p>{`$${item.price}`}</p>
+                                    </div>
+                                </div>
                             </div>
                         )
                     )}
