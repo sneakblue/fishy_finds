@@ -1,0 +1,4 @@
+.subCategory-main-container--div {
+    display: flex;
+    flex-direction: column;
+}
