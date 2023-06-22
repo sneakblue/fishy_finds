@@ -54,9 +54,10 @@
 
 .subCategory-item-card-details--div {
     width: 100%;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .subCategory-item-card-name--div {
-    
+    max-width: 215px;
+    margin-bottom: 15px;
 }
