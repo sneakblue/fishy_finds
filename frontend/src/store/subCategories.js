@@ -1,11 +1,30 @@
 import { csrfFetch } from "./csrf";
 
+const LOAD_SUB_CATEGORY = 'subCategories/load_single';
 const LOAD_SUB_CATEGORIES = 'subCategories/load';
 
 const setSubCategories = (subCategories) => {
     return {
         type: LOAD_SUB_CATEGORIES,
         payload: subCategories
+    }
+}
+
+const setSubCategory = (subCategory) => {
+    return {
+        type: LOAD_SUB_CATEGORY,
+        payload: subCategory
+    }
+}
+
+export const getSubCategory = (id) => async (dispatch) => {
+    const res = await csrfFetch(`/api/categories/${id}/sub`)
+    if (res.ok) {
+        const subCategory = await res.json();
+        dispatch(setSubCategory(subCategory));
+        return subCategory;
+    } else {
+        return 'subCategory Not Found!'
     }
 }
 
@@ -25,6 +44,10 @@ export default function subCategoriesReducer (state = {}, action) {
             newState = {...state};
             action.payload.forEach(subCategory => newState[subCategory.id] = subCategory);
             return newState;
+        }
+        case LOAD_SUB_CATEGORY: {
+            newState = {...state};
+            console.log(action.payload)
         }
         default:
             return state;
