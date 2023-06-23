@@ -18,7 +18,14 @@ const setStoreItem = (item) => {
 }
 
 export const getStoreItem = (id) => async (dispatch) => {
-    const res = await csrfFetch(`/api/storeItems/`)
+    const res = await csrfFetch(`/api/storeItems/${id}`);
+    if (res.ok) {
+        const item = await res.json();
+        dispatch(setStoreItem(item));
+        return item;
+    } else {
+        return res;
+    }
 }
 
 export const getStoreItems = (id) => async (dispatch) => {
@@ -37,6 +44,11 @@ export default function storeItemsReducer(state = {}, action) {
         case LOAD_ITEMS: {
             let newState = {};
             action.payload.forEach(item => newState[item.id] = item);
+            return newState;
+        }
+        case LOAD_SINGLE_ITEM: {
+            let newState = {};
+            newState[action.payload.id] = action.payload;
             return newState;
         }
         default:
