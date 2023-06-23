@@ -10,6 +10,15 @@
     width: 100%;
 }
 
-#modal-content {
-    /* border-radius: 5px; */
+.profile-button--icon {
+    font-size: 25px;
+    margin-right: 10px;
 }
+
+.profile-button--icon:hover {
+    cursor: pointer;
+}
+
+/* #modal-content {
+    border-radius: 5px;
+} */

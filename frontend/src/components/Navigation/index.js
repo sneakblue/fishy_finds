@@ -14,9 +14,9 @@ export default function Navigation({ isLoaded }) {
         );
     } else {
         sessionLinks = (
-            <div>
+            <div className='navbar-login-cart--div'>
                 <LoginFormModal />
-                <NavLink to="/signup">Sign Up</NavLink>
+                <i className='fas fa-shopping-cart navbar-shopping--icon'/>
             </div>
         );
     }

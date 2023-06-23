@@ -17,11 +17,14 @@ export default function HomePage() {
 
 
     return (
-        <div className="homePage_main_div">
-            <h1>HomePage</h1>
-            <div className="categoryCards_parent_div">
-                {categories.map(category => <CategoryCard categoryId={category.id} key={category.id}/>)}
+        <>
+            <div className='navbar-spacer'/>
+            <div className="homePage_main_div">
+                <h1>HomePage</h1>
+                <div className="categoryCards_parent_div">
+                    {categories.map(category => <CategoryCard categoryId={category.id} key={category.id}/>)}
+                </div>
             </div>
-        </div>
+        </>
     )
 }

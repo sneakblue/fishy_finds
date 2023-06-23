@@ -5,6 +5,10 @@
     border: 1px solid black;
 }
 
+.navbar-spacer {
+    height: 50px;
+}
+
 .categoryCard_main_div {
     display: flex;
     align-items: flex-end;

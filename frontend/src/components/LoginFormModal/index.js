@@ -8,7 +8,7 @@ export default function LoginFormModal() {
     return (
         <>
             <div onClick={() => setShowModal(true)}>
-                <i className="fas fa-user-circle" />
+                <i className="fas fa-user-circle profile-button--icon" />
             </div>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
