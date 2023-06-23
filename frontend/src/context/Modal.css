@@ -2,6 +2,7 @@
     position: fixed;
     top: 0;
     right: 0;
+    /* height: 100vh; */
     left: 0;
     bottom: 0;
     display: flex;
@@ -21,5 +22,7 @@
 
 #modal-content {
     position: absolute;
+    right: 0;
+    height: 100vh;
     background-color: white;
 }
