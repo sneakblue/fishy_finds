@@ -4,23 +4,29 @@
     justify-content: center;
     width: 97vw;
     margin: 10px;
-    border: 1px solid red;
 }
 
 .subCategory-search-sidebar--div {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
     width: 20%;
 }
 
 .subCategory-items-main--div {
     width: 80%;
-    border: 1px solid green;
+    border-left: 1px solid rgba(115, 115, 115, 0.397);
+}
+
+.subCategory-title--div {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin: 15px;
 }
 
 .subCategory-items-count--div {
-    border-bottom: 1px solid rgba(red, green, blue, 0.25);
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid rgba(124, 124, 124, 0.5);
 }
 
 .subCategory-items-list--div {
