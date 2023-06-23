@@ -7,26 +7,27 @@ import './Navigation.css';
 export default function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
 
-    let sessionLinks;
-    if (sessionUser) {
-        sessionLinks = (
-            <ProfileButton user={sessionUser} />
-        );
-    } else {
-        sessionLinks = (
-            <>
-                <LoginFormModal />
-                <NavLink to="/signup">Sign Up</NavLink>
-            </>
-        );
-    }
+    // let sessionLinks;
+    // if (sessionUser) {
+    //     sessionLinks = (
+    //         <ProfileButton user={sessionUser} />
+    //     );
+    // } else {
+    //     sessionLinks = (
+
+    //     );
+    // }
 
     return (
-        <ul>
-            <li>
-                <NavLink exact to="/">Home</NavLink>
-                {isLoaded && sessionLinks}
-            </li>
-        </ul>
+        <div className='navbar-main--div'>
+            <div>
+                <i className='fas fa-bars navbar-category-menu--icon'/>
+                <NavLink exact to="/" className='navbar-site--title'>Fishy Finds</NavLink>
+            </div>
+            <div className='navbar-login-cart--div'>
+                <LoginFormModal />
+                <i className='fas fa-shopping-cart navbar-shopping--icon'/>
+            </div>
+        </div>
     );
 }

@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { login } from '../../store/session';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './LoginFormModal.css';
 
-export default function LoginForm() {
+export default function LoginForm({ setShowModal }) {
     const dispatch = useDispatch();
     const [credential, setCredential] = useState('');
     const [password, setPassword] = useState('');
@@ -20,15 +21,29 @@ export default function LoginForm() {
         )
     }
 
+    let entered = (credential !== '' && password !== '') ? true : false;
+
+    if (entered) {
+        let button = document.querySelector('#login_button');
+        if (button) {
+            button.classList.add('valid_button');
+        }
+    } else {
+        let button = document.querySelector('#login_button');
+        if (button) {
+            button.classList.remove('valid_button');
+        }
+    }
+
     return (
         <form onSubmit={handleSubmit} className='loginForm_container'>
-            <ul>
+            <div className='login_error--div'>
                 {errors.map((error, i) => (
-                    <li key={i}>{error}</li>
+                    <p className='login_error' key={i}>{error}</p>
                 ))}
-            </ul>
-            <label>
-                Username or email
+            </div>
+            <label className='loginForm-input--label'>
+                Username or Email<p className='required-asterisk'>*</p>
             </label>
             <input
                 type='text'
@@ -37,8 +52,8 @@ export default function LoginForm() {
                 className='loginForm_input'
                 required
             />
-            <label>
-                Password
+            <label className='loginForm-input--label'>
+                Password<p className='required-asterisk'>*</p>
             </label>
             <input
                 type='text'
@@ -47,7 +62,10 @@ export default function LoginForm() {
                 className='loginForm_input'
                 required
             />
-            <button type="submit">Log In</button>
+            <button id='login_button' type="submit" className='loginForm--button'>SIGN IN</button>
+            <Link to='/signup' className='signup-button--link'>
+                <button className='signup--button' onClick={() => setShowModal(false)}>CREATE AN ACCOUNT</button>
+            </Link>
         </form>
     )
 }

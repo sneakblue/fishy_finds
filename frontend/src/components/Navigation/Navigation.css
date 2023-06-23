@@ -1,0 +1,35 @@
+.navbar-main--div {
+    position: fixed;
+    width: 97vw;
+    display: flex;
+    padding: 15px;
+    justify-content: space-between;
+    background-color: white;
+    border-bottom: 1px solid rgba(115, 115, 115, 0.397);
+}
+
+.navbar-category-menu--icon {
+    font-size: 25px;
+    padding-right: 15px;
+}
+
+.navbar-category-menu--icon:hover {
+    cursor: pointer;
+}
+
+.navbar-shopping--icon {
+    font-size: 25px;
+    margin-right: 15px;
+}
+
+.navbar-shopping--icon:hover {
+    cursor: pointer;
+}
+
+.navbar-login-cart--div {
+    display: flex;
+}
+
+.navbar-site--title {
+    color: black;
+}

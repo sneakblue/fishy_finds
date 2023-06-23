@@ -7,12 +7,15 @@ export default function LoginFormModal() {
 
     return (
         <>
-            <button onClick={() => setShowModal(true)}>
-                Log In
-            </button>
+            <div onClick={() => setShowModal(true)}>
+                <i className="fas fa-user-circle profile-button--icon" />
+            </div>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <LoginForm />
+                    <div className='login-modal-headline--container'>
+                        <h6 className='login-modal--headline'>Sign-in to your Fishy Finds account</h6>
+                    </div>
+                    <LoginForm setShowModal={setShowModal}/>
                 </Modal>
             )}
         </>

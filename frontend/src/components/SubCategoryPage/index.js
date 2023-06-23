@@ -18,22 +18,25 @@ export default function SubCategoryPage () {
     }, [id, dispatch])
 
     return (
-        <div className="subCategory-main-container--div">
-            <div className="subCategory-search-sidebar--div">
+        <>
+            <div className='navbar-spacer'/>
+            <div className="subCategory-main-container--div">
+                <div className="subCategory-search-sidebar--div">
 
-            </div>
-            <div className="subCategory-items-main--div">
-                <div className="subCategory-title--div">
-                    <h2>{subCategory?.title}</h2>
-                    <div className="subCategory-items-count--div"><h5>{`Results: ${items?.length}`}</h5></div>
                 </div>
-                <div className="subCategory-items-list--div">
-                    {items && (
-                        items.map(item => <ItemCard item={item}/>
-                        )
-                    )}
+                <div className="subCategory-items-main--div">
+                    <div className="subCategory-title--div">
+                        <h2>{subCategory?.title}</h2>
+                        <div className="subCategory-items-count--div"><h5>{`Results: ${items?.length}`}</h5></div>
+                    </div>
+                    <div className="subCategory-items-list--div">
+                        {items && (
+                            items.map(item => <ItemCard item={item}/>
+                            )
+                        )}
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }

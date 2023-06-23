@@ -2,7 +2,10 @@
     display: flex;
     flex-direction: column;
     width: 98vw;
-    border: 1px solid black;
+}
+
+.navbar-spacer {
+    height: 60px;
 }
 
 .categoryCard_main_div {
