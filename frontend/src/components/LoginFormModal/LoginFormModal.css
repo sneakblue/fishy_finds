@@ -21,6 +21,7 @@
 .loginForm_input {
     height: 30px;
     font-size: 20px;
+    padding: 5px;
     border-radius: 0;
     margin-bottom: 15px;
     border: 1px solid gray;
