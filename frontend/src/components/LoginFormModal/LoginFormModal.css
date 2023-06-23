@@ -1,3 +1,7 @@
+.login-modal-headline--container {
+    max-width: 300px;
+}
+
 .loginForm_container {
     display: flex;
     flex-direction: column;
@@ -60,6 +64,10 @@
     font-size: 18px;
 }
 
+.login_error--div {
+    margin-top: 10px;
+}
+
 .login_error {
     color: red;
 }
@@ -67,6 +75,7 @@
 .signup--button {
     margin-top: 20px;
     font-size: 15px;
+    width: 100%;
     padding: 7px;
     font-weight: bold;
     background-color: white;
@@ -81,6 +90,6 @@
     cursor: pointer;
 }
 
-/* #modal-content {
-    border-radius: 5px;
-} */
+.signup-button--link {
+    width: 100%;
+}

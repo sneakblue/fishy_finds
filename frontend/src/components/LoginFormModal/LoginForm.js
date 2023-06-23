@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { login } from '../../store/session';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './LoginFormModal.css';
 
-export default function LoginForm() {
+export default function LoginForm({ setShowModal }) {
     const dispatch = useDispatch();
     const [credential, setCredential] = useState('');
     const [password, setPassword] = useState('');
@@ -36,11 +37,11 @@ export default function LoginForm() {
 
     return (
         <form onSubmit={handleSubmit} className='loginForm_container'>
-            <ul>
+            <div className='login_error--div'>
                 {errors.map((error, i) => (
                     <p className='login_error' key={i}>{error}</p>
                 ))}
-            </ul>
+            </div>
             <label className='loginForm-input--label'>
                 Username or Email<p className='required-asterisk'>*</p>
             </label>
@@ -62,7 +63,9 @@ export default function LoginForm() {
                 required
             />
             <button id='login_button' type="submit" className='loginForm--button'>SIGN IN</button>
-            <button className='signup--button'>CREATE AN ACCOUNT</button>
+            <Link to='/signup' className='signup-button--link'>
+                <button className='signup--button' onClick={() => setShowModal(false)}>CREATE AN ACCOUNT</button>
+            </Link>
         </form>
     )
 }
