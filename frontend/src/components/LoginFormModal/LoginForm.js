@@ -21,17 +21,14 @@ export default function LoginForm() {
     }
 
     let entered = (credential !== '' && password !== '') ? true : false;
-    console.log(entered);
 
     if (entered) {
         let button = document.querySelector('#login_button');
-        // button.disabled = false;
         if (button) {
             button.classList.add('valid_button');
         }
     } else {
         let button = document.querySelector('#login_button');
-        // button.disabled = true;
         if (button) {
             button.classList.remove('valid_button');
         }
@@ -41,7 +38,7 @@ export default function LoginForm() {
         <form onSubmit={handleSubmit} className='loginForm_container'>
             <ul>
                 {errors.map((error, i) => (
-                    <li key={i}>{error}</li>
+                    <p className='login_error' key={i}>{error}</p>
                 ))}
             </ul>
             <label className='loginForm-input--label'>
@@ -65,6 +62,7 @@ export default function LoginForm() {
                 required
             />
             <button id='login_button' type="submit" className='loginForm--button'>SIGN IN</button>
+            <button className='signup--button'>CREATE AN ACCOUNT</button>
         </form>
     )
 }

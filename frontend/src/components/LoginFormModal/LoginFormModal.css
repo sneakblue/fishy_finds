@@ -60,6 +60,27 @@
     font-size: 18px;
 }
 
+.login_error {
+    color: red;
+}
+
+.signup--button {
+    margin-top: 20px;
+    font-size: 15px;
+    padding: 7px;
+    font-weight: bold;
+    background-color: white;
+    color: rgb(5, 59, 21);
+    border: 1px solid rgb(5, 59, 21);
+    transition: all 0.5s;
+}
+
+.signup--button:hover {
+    background-color: rgb(5, 59, 21);
+    color: white;
+    cursor: pointer;
+}
+
 /* #modal-content {
     border-radius: 5px;
 } */
