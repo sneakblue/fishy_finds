@@ -1,8 +1,7 @@
 .loginForm_container {
     display: flex;
     flex-direction: column;
-    height: 8000px;
-    padding: 20px;
+    padding: 0 20px 0 20px;
 }
 
 .loginForm-input--label {
@@ -19,6 +18,7 @@
     height: 30px;
     font-size: 20px;
     border-radius: 0;
+    margin-bottom: 15px;
     border: 1px solid gray;
     transition: all 0.3s;
 }
@@ -29,6 +29,21 @@
 
 .loginForm--button {
     width: 100%;
+    border: 0;
+    height: 35px;
+    margin-top: 15px;
+    transition: all 0.5s;
+    font-weight: bold;
+}
+
+.valid_button {
+    background-color: rgb(5, 59, 21);
+    color: white;
+    cursor: pointer;
+}
+
+.valid_button:hover {
+    background-color: rgb(67, 100, 77);
 }
 
 .profile-button--icon {

@@ -20,6 +20,23 @@ export default function LoginForm() {
         )
     }
 
+    let entered = (credential !== '' && password !== '') ? true : false;
+    console.log(entered);
+
+    if (entered) {
+        let button = document.querySelector('#login_button');
+        // button.disabled = false;
+        if (button) {
+            button.classList.add('valid_button');
+        }
+    } else {
+        let button = document.querySelector('#login_button');
+        // button.disabled = true;
+        if (button) {
+            button.classList.remove('valid_button');
+        }
+    }
+
     return (
         <form onSubmit={handleSubmit} className='loginForm_container'>
             <ul>
@@ -47,7 +64,7 @@ export default function LoginForm() {
                 className='loginForm_input'
                 required
             />
-            <button type="submit" className='loginForm--button'>Log In</button>
+            <button id='login_button' type="submit" className='loginForm--button'>SIGN IN</button>
         </form>
     )
 }
