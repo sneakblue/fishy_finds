@@ -1,0 +1,14 @@
+.navbar-main--div {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.navbar-category-menu--icon {
+    font-size: 25px;
+    padding-right: 15px;
+}
+
+.navbar-site--title {
+    color: black;
+}

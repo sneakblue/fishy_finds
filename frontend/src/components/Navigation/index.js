@@ -14,19 +14,20 @@ export default function Navigation({ isLoaded }) {
         );
     } else {
         sessionLinks = (
-            <>
+            <div>
                 <LoginFormModal />
                 <NavLink to="/signup">Sign Up</NavLink>
-            </>
+            </div>
         );
     }
 
     return (
-        <ul>
-            <li>
-                <NavLink exact to="/">Home</NavLink>
-                {isLoaded && sessionLinks}
-            </li>
-        </ul>
+        <div className='navbar-main--div'>
+            <div>
+                <i className='fas fa-bars navbar-category-menu--icon'/>
+                <NavLink exact to="/" className='navbar-site--title'>Fishy Finds</NavLink>
+            </div>
+            {isLoaded && sessionLinks}
+        </div>
     );
 }
