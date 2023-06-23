@@ -1,12 +1,24 @@
 import { csrfFetch } from "./csrf";
 
 const LOAD_ITEMS = 'storeItems/load';
+const LOAD_SINGLE_ITEM = 'storeItems/load_single';
 
 const setStoreItems = (items) => {
     return {
         type: LOAD_ITEMS,
         payload: items
     }
+}
+
+const setStoreItem = (item) => {
+    return {
+        type: LOAD_SINGLE_ITEM,
+        payload: item
+    }
+}
+
+export const getStoreItem = (id) => async (dispatch) => {
+    const res = await csrfFetch(`/api/storeItems/`)
 }
 
 export const getStoreItems = (id) => async (dispatch) => {

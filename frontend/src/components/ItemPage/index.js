@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 
-export default function ItemPage({ }) {
+export default function ItemPage() {
     const { id } = useParams();
     return (
         <div>
