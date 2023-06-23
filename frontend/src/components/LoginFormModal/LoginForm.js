@@ -27,8 +27,8 @@ export default function LoginForm() {
                     <li key={i}>{error}</li>
                 ))}
             </ul>
-            <label>
-                Username or email
+            <label className='loginForm-input--label'>
+                Username or Email<p className='required-asterisk'>*</p>
             </label>
             <input
                 type='text'
@@ -37,8 +37,8 @@ export default function LoginForm() {
                 className='loginForm_input'
                 required
             />
-            <label>
-                Password
+            <label className='loginForm-input--label'>
+                Password<p className='required-asterisk'>*</p>
             </label>
             <input
                 type='text'
@@ -47,7 +47,7 @@ export default function LoginForm() {
                 className='loginForm_input'
                 required
             />
-            <button type="submit">Log In</button>
+            <button type="submit" className='loginForm--button'>Log In</button>
         </form>
     )
 }

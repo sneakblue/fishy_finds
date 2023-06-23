@@ -7,19 +7,16 @@ import './Navigation.css';
 export default function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
 
-    let sessionLinks;
-    if (sessionUser) {
-        sessionLinks = (
-            <ProfileButton user={sessionUser} />
-        );
-    } else {
-        sessionLinks = (
-            <div className='navbar-login-cart--div'>
-                <LoginFormModal />
-                <i className='fas fa-shopping-cart navbar-shopping--icon'/>
-            </div>
-        );
-    }
+    // let sessionLinks;
+    // if (sessionUser) {
+    //     sessionLinks = (
+    //         <ProfileButton user={sessionUser} />
+    //     );
+    // } else {
+    //     sessionLinks = (
+
+    //     );
+    // }
 
     return (
         <div className='navbar-main--div'>
@@ -27,7 +24,10 @@ export default function Navigation({ isLoaded }) {
                 <i className='fas fa-bars navbar-category-menu--icon'/>
                 <NavLink exact to="/" className='navbar-site--title'>Fishy Finds</NavLink>
             </div>
-            {isLoaded && sessionLinks}
+            <div className='navbar-login-cart--div'>
+                <LoginFormModal />
+                <i className='fas fa-shopping-cart navbar-shopping--icon'/>
+            </div>
         </div>
     );
 }

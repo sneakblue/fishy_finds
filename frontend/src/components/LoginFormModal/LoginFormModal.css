@@ -1,12 +1,33 @@
 .loginForm_container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
+    height: 8000px;
+    padding: 20px;
+}
+
+.loginForm-input--label {
+    display: flex;
+    margin: 10px 0 10px 0;
+}
+
+.required-asterisk {
+    margin-left: 3px;
+    color: red;
 }
 
 .loginForm_input {
+    height: 30px;
+    font-size: 20px;
+    border-radius: 0;
+    border: 1px solid gray;
+    transition: all 0.3s;
+}
+
+.loginForm_input:focus {
+    border-radius: 0;
+}
+
+.loginForm--button {
     width: 100%;
 }
 
@@ -17,6 +38,11 @@
 
 .profile-button--icon:hover {
     cursor: pointer;
+}
+
+.login-modal--headline {
+    padding: 20px 0 0 20px;
+    font-size: 18px;
 }
 
 /* #modal-content {

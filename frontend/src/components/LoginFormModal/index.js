@@ -12,6 +12,7 @@ export default function LoginFormModal() {
             </div>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
+                    <h6 className='login-modal--headline'>Sign-in to your Fishy Finds account</h6>
                     <LoginForm />
                 </Modal>
             )}
