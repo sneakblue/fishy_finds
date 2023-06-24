@@ -38,7 +38,6 @@ export default function ItemPage() {
         )
     }
 
-    console.log(item);
     return (
         <div className='itemPage-main-container'>
             <div className='navbar-spacer'/>
@@ -55,8 +54,9 @@ export default function ItemPage() {
                     {productDetails}
                 </div>
                 <div className='itemPage-title-price-container'>
-                    <h3>{item?.name}</h3>
-                    <h3>{`$${item?.price}`}</h3>
+                    <h3 className='itemPage-title-price--h3'>{item?.name}</h3>
+                    <h3 className='itemPage-title-price--h3'>{`$${item?.price}`}</h3>
+                    <button className='itemPage-addToCart--button'>ADD TO CART</button>
                 </div>
             </div>
             <div className='itemPage-product-chart--div'>
