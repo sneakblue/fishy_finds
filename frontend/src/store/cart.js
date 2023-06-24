@@ -8,11 +8,22 @@ const setCartItems = (cartItems) => {
     }
 }
 
-export const getCartItems = (userId) => async (dispatch) => {
-    if (userId) {
+export const getCartItems = (sessionUser) => async (dispatch) => {
+    if (sessionUser) {
 
     } else {
-        
+        const cartItems = localStorage.getItem('items');
+        if (cartItems) {
+            const prevItems = [];
+            const itemPairs = cartItems.split(',');
+            itemPairs.forEach((itemPair) => {
+                const [ itemId, quantity ] = itemPair.split('-');
+                prevItems.push({itemId: quantity});
+            });
+            dispatch(setCartItems(prevItems));
+        } else {
+            return;
+        }
     }
 }
 

@@ -1,11 +1,18 @@
+import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 // import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
+import { getCartItems } from '../../store/cart';
 import './Navigation.css';
 
 export default function Navigation({ isLoaded }) {
+    const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
+
+    useEffect(() => {
+        dispatch(getCartItems(sessionUser));
+    }, [])
 
     // let sessionLinks;
     // if (sessionUser) {
