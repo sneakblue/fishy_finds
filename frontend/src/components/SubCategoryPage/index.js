@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getStoreItems } from "../../store/storeItems";
 import { getSubCategory } from "../../store/subCategories";
 import ItemCard from "./ItemCard";
