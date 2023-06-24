@@ -16,6 +16,7 @@
     display: flex;
     width: 100%;
     justify-content: center;
+    margin-bottom: 25px;
 }
 
 .itemPage-image-img {
