@@ -1,5 +1,6 @@
 
 const GET_CART_ITEMS = 'cart/load_items';
+const ADD_CART_ITEM = 'cart/add_item';
 
 const setCartItems = (cartItems) => {
     return {
@@ -8,11 +9,30 @@ const setCartItems = (cartItems) => {
     }
 }
 
+export const addCartItem = (sessionUser, itemId, quantity) => async (dispatch) => {
+    if (sessionUser) {
+
+    } else {
+        let cartItems = localStorage.getItem('cartItems');
+        if (cartItems) {
+            if (cartItems.length > 0) {
+                cartItems += ',' + `${itemId}-${quantity}`;
+            } else {
+                cartItems = `${itemId}-${quantity}`;
+            }
+            localStorage.setItem('cartItems', cartItems);
+        } else {
+            cartItems = `${itemId}-${quantity}`;
+            localStorage.setItem('cartItems', cartItems);
+        }
+    }
+}
+
 export const getCartItems = (sessionUser) => async (dispatch) => {
     if (sessionUser) {
 
     } else {
-        const cartItems = localStorage.getItem('items');
+        const cartItems = localStorage.getItem('cartItems');
         if (cartItems) {
             const prevItems = [];
             const itemPairs = cartItems.split(',');
