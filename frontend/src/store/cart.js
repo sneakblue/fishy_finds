@@ -18,10 +18,12 @@ export const getCartItems = (sessionUser) => async (dispatch) => {
             const itemPairs = cartItems.split(',');
             itemPairs.forEach((itemPair) => {
                 const [ itemId, quantity ] = itemPair.split('-');
-                prevItems.push({itemId: quantity});
+                prevItems.push({[itemId]: quantity});
             });
+            console.log(prevItems);
             dispatch(setCartItems(prevItems));
         } else {
+            console.log('No saved localStorage Cart Items!')
             return;
         }
     }

@@ -7,7 +7,7 @@ export default function ItemCard({item}) {
         <div className="subCategory-item-card--div" key={item.id}>
             <div className='subCategory-item-card-img--div'>
                 <Link to={`/item/${item.id}`}>
-                    <img src={item.imageUrl} className="subCategory-item-card--img"/>
+                    <img src={item.imageUrl} className="subCategory-item-card--img" alt='category_item'/>
                 </Link>
             </div>
             <div className="subCategory-item-card-details--div">

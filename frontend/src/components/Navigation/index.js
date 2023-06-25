@@ -11,8 +11,11 @@ export default function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
 
     useEffect(() => {
-        dispatch(getCartItems(sessionUser));
-    }, [])
+        if (isLoaded) {
+            console.log('Is loaded')
+            dispatch(getCartItems(sessionUser));
+        }
+    }, [dispatch, sessionUser, isLoaded])
 
     // let sessionLinks;
     // if (sessionUser) {
