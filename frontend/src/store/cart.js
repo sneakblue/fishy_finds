@@ -1,4 +1,3 @@
-
 const GET_CART_ITEMS = 'cart/load_items';
 const ADD_CART_ITEM = 'cart/add_item';
 
@@ -23,7 +22,19 @@ export const addCartItem = (sessionUser, item_id, quantity) => async (dispatch) 
         let cartItems = localStorage.getItem('cartItems');
         if (cartItems) {
             if (cartItems.length > 0) {
-                cartItems += ',' + `${item_id}-${quantity}`;
+                let itemPairs = cartItems.split(',');
+                let foundItem = false;
+                for (let i = 0; i < itemPairs.length; i++) {
+                    let itemPair = itemPairs[i].split('-');
+                    if (itemPair[0] === item_id) {
+                        itemPair[1] = quantity;
+                        itemPairs[i] = itemPair.join('-');
+                        foundItem = true;
+                        break;
+                    }
+                }
+                if (!foundItem) itemPairs.push(`${item_id}-${quantity}`)
+                cartItems = itemPairs.join(',');
             } else {
                 cartItems = `${item_id}-${quantity}`;
             }
@@ -46,13 +57,13 @@ export const getCartItems = (sessionUser) => async (dispatch) => {
             const prevItems = [];
             const itemPairs = cartItems.split(',');
             itemPairs.forEach((itemPair) => {
-                const [ itemId, quantity ] = itemPair.split('-');
-                prevItems.push({[itemId]: quantity});
+                const [ item_id, quantity ] = itemPair.split('-');
+                prevItems.push({item_id, quantity});
             });
-            console.log(prevItems);
+            // console.log(prevItems);
             dispatch(setCartItems(prevItems));
         } else {
-            console.log('No saved localStorage Cart Items!')
+            // console.log('No saved localStorage Cart Items!')
             return;
         }
     }
@@ -62,7 +73,8 @@ export default function cartReducer(state = {}, action) {
     switch(action.type) {
         case GET_CART_ITEMS: {
             let newState = {};
-            action.payload.forEach(item => newState[item.id] = item);
+            // console.log(action.payload);
+            action.payload.forEach(item => newState[item.item_id] = item.quantity);
             return newState;
         }
         case ADD_CART_ITEM: {

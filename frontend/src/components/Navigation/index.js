@@ -12,7 +12,7 @@ export default function Navigation({ isLoaded }) {
 
     useEffect(() => {
         if (isLoaded) {
-            console.log('Is loaded')
+            // console.log('Is loaded');
             dispatch(getCartItems(sessionUser));
         }
     }, [dispatch, sessionUser, isLoaded])

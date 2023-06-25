@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getStoreItem } from '../../store/storeItems';
+import { addCartItem } from '../../store/cart';
 import ItemDetails from './ItemDetails';
 import './ItemPage.css';
 
@@ -10,10 +11,16 @@ export default function ItemPage() {
     const { id } = useParams();
     const [ showDetails, setShowDetails ] = useState(false);
     const item = useSelector((state) => state.storeItems[id]);
+    const sessionUser = useSelector(state => state.session.user);
 
     useEffect(() => {
         dispatch(getStoreItem(id));
-    }, [dispatch, id])
+    }, [dispatch, id]);
+
+
+    const addCartHandler = () => {
+        dispatch(addCartItem(sessionUser, id, 1));
+    }
 
     let productDetails;
     if (showDetails) {
@@ -56,7 +63,10 @@ export default function ItemPage() {
                 <div className='itemPage-title-price-container'>
                     <h3 className='itemPage-title-price--h3'>{item?.name}</h3>
                     <h3 className='itemPage-title-price--h3'>{`$${item?.price}`}</h3>
-                    <button className='itemPage-addToCart--button'>ADD TO CART</button>
+                    <button
+                        className='itemPage-addToCart--button'
+                        onClick={addCartHandler}
+                    >ADD TO CART</button>
                 </div>
             </div>
             <div className='itemPage-product-chart--div'>
