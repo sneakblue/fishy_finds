@@ -9,22 +9,31 @@ const setCartItems = (cartItems) => {
     }
 }
 
-export const addCartItem = (sessionUser, itemId, quantity) => async (dispatch) => {
+const setCartItem = (cartItem) => {
+    return {
+        type: ADD_CART_ITEM,
+        payload: cartItem
+    }
+}
+
+export const addCartItem = (sessionUser, item_id, quantity) => async (dispatch) => {
     if (sessionUser) {
 
     } else {
         let cartItems = localStorage.getItem('cartItems');
         if (cartItems) {
             if (cartItems.length > 0) {
-                cartItems += ',' + `${itemId}-${quantity}`;
+                cartItems += ',' + `${item_id}-${quantity}`;
             } else {
-                cartItems = `${itemId}-${quantity}`;
+                cartItems = `${item_id}-${quantity}`;
             }
             localStorage.setItem('cartItems', cartItems);
         } else {
-            cartItems = `${itemId}-${quantity}`;
+            cartItems = `${item_id}-${quantity}`;
             localStorage.setItem('cartItems', cartItems);
         }
+        const newItem = {item_id, quantity};
+        dispatch(setCartItem(newItem));
     }
 }
 
@@ -54,6 +63,11 @@ export default function cartReducer(state = {}, action) {
         case GET_CART_ITEMS: {
             let newState = {};
             action.payload.forEach(item => newState[item.id] = item);
+            return newState;
+        }
+        case ADD_CART_ITEM: {
+            let newState = {...state};
+            newState[action.payload.item_id] = action.payload;
             return newState;
         }
         default:
