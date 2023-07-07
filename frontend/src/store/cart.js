@@ -50,7 +50,7 @@ export const addCartItem = (sessionUser, item_id, quantity) => async (dispatch) 
 
 export const getCartItems = (sessionUser) => async (dispatch) => {
     if (sessionUser) {
-
+        
     } else {
         const cartItems = localStorage.getItem('cartItems');
         if (cartItems) {
@@ -74,7 +74,7 @@ export default function cartReducer(state = {}, action) {
         case GET_CART_ITEMS: {
             let newState = {};
             // console.log(action.payload);
-            action.payload.forEach(item => newState[item.item_id] = item.quantity);
+            action.payload.forEach(item => newState[item.item_id] = item);
             return newState;
         }
         case ADD_CART_ITEM: {
