@@ -4,6 +4,7 @@ import HomePage from './components/HomePage';
 import CategoryPage from './components/CategoryPage';
 import SubCategoryPage from './components/SubCategoryPage';
 import ItemPage from './components/ItemPage';
+import CartPage from './components/CartPage';
 import Navigation from './components/Navigation';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -35,6 +36,9 @@ function App() {
                     </Route>
                     <Route path="/item/:id">
                         <ItemPage />
+                    </Route>
+                    <Route path="/cart">
+                        <CartPage />
                     </Route>
                 </Switch>
             )}

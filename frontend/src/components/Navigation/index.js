@@ -44,9 +44,11 @@ export default function Navigation({ isLoaded }) {
             </div>
             <div className='navbar-login-cart--div'>
                 <LoginFormModal />
-                <i className='fas fa-shopping-cart navbar-shopping--icon'>
-                    <div className='cart_count'>{cartCount}</div>
-                </i>
+                <NavLink to="/cart" className='navbar-shopping-cart--link'>
+                    <i className='fas fa-shopping-cart navbar-shopping--icon'>
+                        <div className='cart_count'>{cartCount}</div>
+                    </i>
+                </NavLink>
                 {/* <CartModal cartCount={cartCount}/> */}
             </div>
         </div>
