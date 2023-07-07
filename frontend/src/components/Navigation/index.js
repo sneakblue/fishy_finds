@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 // import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
+// import CartModal from '../CartModal';
 import { getCartItems } from '../../store/cart';
 import './Navigation.css';
 
@@ -46,6 +47,7 @@ export default function Navigation({ isLoaded }) {
                 <i className='fas fa-shopping-cart navbar-shopping--icon'>
                     <div className='cart_count'>{cartCount}</div>
                 </i>
+                {/* <CartModal cartCount={cartCount}/> */}
             </div>
         </div>
     );

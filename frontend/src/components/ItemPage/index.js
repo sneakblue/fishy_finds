@@ -4,12 +4,15 @@ import { useEffect, useState } from 'react';
 import { getStoreItem } from '../../store/storeItems';
 import { addCartItem } from '../../store/cart';
 import ItemDetails from './ItemDetails';
+import CartModal from '../CartModal';
 import './ItemPage.css';
 
 export default function ItemPage() {
     const dispatch = useDispatch();
     const { id } = useParams();
     const [ showDetails, setShowDetails ] = useState(false);
+    const [ showModal, setShowModal ] = useState(false);
+    const [ itemCount, setItemCount ] = useState(1);
     const item = useSelector((state) => state.storeItems[id]);
     const sessionUser = useSelector(state => state.session.user);
 
@@ -19,7 +22,8 @@ export default function ItemPage() {
 
 
     const addCartHandler = () => {
-        dispatch(addCartItem(sessionUser, id, 1));
+        dispatch(addCartItem(sessionUser, id, itemCount));
+        setShowModal(true);
     }
 
     let productDetails;
@@ -75,6 +79,11 @@ export default function ItemPage() {
                     <ItemDetails details={item.details}/>
                 )}
             </div>
+            <CartModal
+                showModal={showModal}
+                setShowModal={setShowModal}
+                itemCount={itemCount}
+            />
         </div>
     )
 }
