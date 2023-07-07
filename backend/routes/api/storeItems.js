@@ -13,7 +13,7 @@ router.get('/:id', asyncHandler (async (req, res) => {
     } else {
         return res.json('No Item Found!!!');
     }
-}))
+}));
 
 router.get('/bySub/:id', asyncHandler ( async(req, res) => {
     const id = req.params.id;

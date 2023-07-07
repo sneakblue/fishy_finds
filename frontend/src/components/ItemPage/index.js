@@ -83,6 +83,7 @@ export default function ItemPage() {
                 showModal={showModal}
                 setShowModal={setShowModal}
                 itemCount={itemCount}
+                item={item}
             />
         </div>
     )
