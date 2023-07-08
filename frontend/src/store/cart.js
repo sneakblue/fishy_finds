@@ -50,7 +50,7 @@ export const addCartItem = (sessionUser, item_id, quantity) => async (dispatch) 
 
 export const getCartItems = (sessionUser) => async (dispatch) => {
     if (sessionUser) {
-        
+
     } else {
         const cartItems = localStorage.getItem('cartItems');
         if (cartItems) {
@@ -62,6 +62,7 @@ export const getCartItems = (sessionUser) => async (dispatch) => {
             });
             // console.log(prevItems);
             dispatch(setCartItems(prevItems));
+            return prevItems;
         } else {
             // console.log('No saved localStorage Cart Items!')
             return;

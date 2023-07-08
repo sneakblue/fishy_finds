@@ -4,16 +4,7 @@ const { StoreItem, SubCategory } = require('../../db/models');
 const detailFormatter = require('../../utils/detailFormatter');
 const router = express.Router();
 
-router.get('/:id', asyncHandler (async (req, res) => {
-    const id = req.params.id;
-    const storeItem = await StoreItem.findByPk(id);
-    if (storeItem) {
-        storeItem.details = detailFormatter(storeItem.details);
-        return res.json(storeItem);
-    } else {
-        return res.json('No Item Found!!!');
-    }
-}));
+
 
 router.get('/bySub/:id', asyncHandler ( async(req, res) => {
     const id = req.params.id;
@@ -33,5 +24,34 @@ router.get('/bySub/:id', asyncHandler ( async(req, res) => {
     return res.json(storeItems);
 }));
 
+router.get('/byList/', asyncHandler ( async(req, res) => {
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+    // console.log(req.query)
+    const array = req.query.array;
+    const itemsList = [];
+    // array.forEach( async (id) => {
+    //     let item = await StoreItem.findByPk(id);
+    //     itemsList.push(item);
+    // })
+    for (let i = 0; i < array.length; i++) {
+        let id = array[i];
+        let item = await StoreItem.findByPk(id);
+        itemsList.push(item);
+    }
+    console.log(array);
+    console.log(itemsList);
+    return res.json(itemsList);
+}));
+
+router.get('/:id', asyncHandler (async (req, res) => {
+    const id = req.params.id;
+    const storeItem = await StoreItem.findByPk(id);
+    if (storeItem) {
+        storeItem.details = detailFormatter(storeItem.details);
+        return res.json(storeItem);
+    } else {
+        return res.json('No Item Found!!!');
+    }
+}));
 
 module.exports = router;
