@@ -27,7 +27,8 @@ export const addCartItem = (sessionUser, item_id, quantity) => async (dispatch) 
                 for (let i = 0; i < itemPairs.length; i++) {
                     let itemPair = itemPairs[i].split('-');
                     if (itemPair[0] === item_id) {
-                        itemPair[1] = quantity;
+                        itemPair[1] = Number(itemPair[1]) + quantity;
+                        quantity = Number(itemPair[1]);
                         itemPairs[i] = itemPair.join('-');
                         foundItem = true;
                         break;
