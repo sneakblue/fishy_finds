@@ -22,8 +22,11 @@ export default function ItemPage() {
 
 
     const addCartHandler = () => {
-        dispatch(addCartItem(sessionUser, id, itemCount));
-        setShowModal(true);
+        console.log('Added Quantity: ' + itemCount);
+        if (itemCount > 0) {
+            dispatch(addCartItem(sessionUser, id, itemCount));
+            setShowModal(true);
+        }
     }
 
     let productDetails;
@@ -49,6 +52,27 @@ export default function ItemPage() {
         )
     }
 
+    const quantityHandler = (direction) => {
+        if (direction === '-' && itemCount >= 2) {
+            setItemCount(Number(itemCount) - 1)
+        } else if (direction === '+' && itemCount < 999) {
+            setItemCount(Number(itemCount) + 1)
+        }
+    }
+
+    const customQuantityHandler = (quantityInput) => {
+        console.log(quantityInput)
+        console.log(quantityInput.length);
+        if (quantityInput.length > 3) {
+            quantityInput = quantityInput.slice(0, 3);
+        }
+        if (quantityInput < 0) {
+            setItemCount(0);
+        } else {
+            setItemCount(quantityInput);
+        }
+    }
+
     return (
         <div className='itemPage-main-container'>
             <div className='navbar-spacer'/>
@@ -66,7 +90,29 @@ export default function ItemPage() {
                 </div>
                 <div className='itemPage-title-price-container'>
                     <h3 className='itemPage-title-price--h3'>{item?.name}</h3>
-                    <h3 className='itemPage-title-price--h3'>{`$${item?.price}`}</h3>
+                    <div className='itemPage-price-quantity-container--div'>
+                        <h3 className='itemPage-title-price--h3'>{`$${item?.price}`}</h3>
+                        <div className='itemPage-quantity--div'>
+                            <button
+                                onClick={() => quantityHandler('-')}
+                            >
+                                -
+                            </button>
+                            <input
+                                type='number'
+                                value={itemCount}
+                                onChange={(e) => customQuantityHandler(e.target.value)}
+                                className='itemPage-quantity--input'
+                                maxLength={3}
+                                max={999}
+                            />
+                            <button
+                                onClick={() => quantityHandler('+')}
+                            >
+                                +
+                            </button>
+                        </div>
+                    </div>
                     <button
                         className='itemPage-addToCart--button'
                         onClick={addCartHandler}

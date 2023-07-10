@@ -6,12 +6,12 @@ import { getStoreItemsList } from '../../store/storeItems';
 export default function CartList({currItems}) {
     const dispatch = useDispatch();
     const itemDetails = useSelector((state) => Object.values(state.storeItems));
+    const ids = [];
+    currItems.forEach(item => ids.push(item.item_id));
 
     useEffect(() => {
-        const ids = [];
-        currItems.forEach(item => ids.push(item.item_id));
         dispatch(getStoreItemsList(ids));
-    }, [])
+    }, [dispatch])
 
     console.log(itemDetails);
 
