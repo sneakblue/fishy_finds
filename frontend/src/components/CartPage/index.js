@@ -1,23 +1,8 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { getStoreItemsList } from '../../store/storeItems';
+import { useSelector } from 'react-redux';
 import CartList from './CartList';
 
 export default function CartPage() {
-    // const isLoaded = useRef(false);
-    const dispatch = useDispatch();
     const cartItems = useSelector((state) => Object.values(state.cart));
-
-    // useEffect(() => {
-    //     if (cartItems.length) {
-    //         const ids = [];
-    //         cartItems.forEach((item) => ids.push(item.item_id));
-    //         dispatch(getStoreItemsList(ids));
-    //         console.log('Monkey');
-    //         // isLoaded.current = true;
-    //     }
-    // }, [ dispatch, cartItems ]);
-    // console.log(cartItems);
 
     let content;
     if (!cartItems.length) {

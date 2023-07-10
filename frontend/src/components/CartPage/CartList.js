@@ -18,7 +18,13 @@ export default function CartList({currItems}) {
     return (
         <div>
             Items List:
-            {currItems.map(item => <>{item.item_id}</>)}
+            {itemDetails?.map(item => {
+                return (
+                    <div>
+                        {item.name}
+                    </div>
+                )
+            })}
         </div>
     )
 }
