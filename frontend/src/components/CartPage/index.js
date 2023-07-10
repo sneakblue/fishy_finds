@@ -1,22 +1,23 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { getStoreItemsList } from '../../store/storeItems';
+import CartList from './CartList';
 
 export default function CartPage() {
-    const isLoaded = useRef(false);
+    // const isLoaded = useRef(false);
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => Object.values(state.cart));
 
-    useEffect(() => {
-        if (cartItems.length && !isLoaded) {
-            const ids = [];
-            cartItems.forEach((item) => ids.push(item.item_id));
-            dispatch(getStoreItemsList(ids));
-            console.log('Monkey');
-            isLoaded.current = true;
-        }
-    }, [ dispatch, cartItems ]);
-    console.log(cartItems);
+    // useEffect(() => {
+    //     if (cartItems.length) {
+    //         const ids = [];
+    //         cartItems.forEach((item) => ids.push(item.item_id));
+    //         dispatch(getStoreItemsList(ids));
+    //         console.log('Monkey');
+    //         // isLoaded.current = true;
+    //     }
+    // }, [ dispatch, cartItems ]);
+    // console.log(cartItems);
 
     let content;
     if (!cartItems.length) {
@@ -28,13 +29,7 @@ export default function CartPage() {
     } else {
         content = (
             <>
-                {cartItems.map((item) => {
-                    return (
-                        <>
-                            {item.item_id}
-                        </>
-                    )
-                })}
+                <CartList currItems={cartItems}/>
             </>
         )
     }

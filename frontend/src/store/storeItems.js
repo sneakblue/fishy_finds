@@ -45,7 +45,6 @@ export const getStoreItemsList = (ids) => async (dispatch) => {
     const res = await csrfFetch(`/api/storeItems/byList/${queryStr}`);
     if (res.ok) {
         const storeItems = await res.json();
-        console.log(storeItems);
         dispatch(setStoreItems(storeItems));
     }
 }
