@@ -1,27 +1,25 @@
 import { useEffect } from "react";
-import { useSelector, useDispatch } from 'react-redux';
-import { getStoreItemsList } from '../../store/storeItems';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { getStoreItemsList } from '../../store/storeItems';
 
 
-export default function CartList({currItems}) {
-    const dispatch = useDispatch();
-    const itemDetails = useSelector((state) => Object.values(state.storeItems));
-    const ids = [];
-    currItems.forEach(item => ids.push(item.item_id));
+export default function CartList({cartItemCount, cartItemDetails}) {
 
-    useEffect(() => {
-        dispatch(getStoreItemsList(ids));
-    }, [dispatch])
-
-    console.log(itemDetails);
-
+    // console.log(cartItemDetails.length);
     return (
-        <div>
-            Items List:
-            {itemDetails?.map(item => {
+        <div className="cartList-main-container--div">
+            {cartItemDetails.map((item, idx) => {
                 return (
-                    <div>
-                        {item.name}
+                    <div className="cartList-item-container--div">
+                        <div className="carList-item-img-title--div">
+                            <img
+                                className='cartPage-item--img'
+                                src={item?.imageUrl}
+                                alt='product'
+                            />
+                            <h5>{item.name}</h5>
+                            <h3>Quantity: {cartItemCount[idx].quantity}</h3>
+                        </div>
                     </div>
                 )
             })}

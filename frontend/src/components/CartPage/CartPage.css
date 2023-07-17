@@ -1,0 +1,22 @@
+.cartList-main-container--div {
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+}
+
+.cartPage-item--img {
+    height: 60px;
+}
+
+.cartList-item-container--div {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+}
+
+.carList-item-img-title--div {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    border: 1px solid red;
+}

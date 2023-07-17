@@ -1,10 +1,12 @@
+import { csrfFetch } from "./csrf";
+
 const GET_CART_ITEMS = 'cart/load_items';
 const ADD_CART_ITEM = 'cart/add_item';
 
-const setCartItems = (cartItems) => {
+const setCartItems = (payload) => {
     return {
         type: GET_CART_ITEMS,
-        payload: cartItems
+        payload
     }
 }
 
@@ -61,8 +63,19 @@ export const getCartItems = (sessionUser) => async (dispatch) => {
                 const [ item_id, quantity ] = itemPair.split('-');
                 prevItems.push({item_id, quantity});
             });
+            let ids = [];
+            prevItems.forEach(item => ids.push(item.item_id));
+            let queryStr = `?array=${ids.shift()}`;
+            ids.forEach(id => queryStr+= `&array=${id}`);
+            const res = await csrfFetch(`/api/storeItems/byList/${queryStr}`);
             // console.log(prevItems);
-            dispatch(setCartItems(prevItems));
+            if (res.ok) {
+                const cartItems = await res.json();
+                console.log(cartItems);
+                let payload = {prevItems, cartItems};
+                console.log(payload);
+                dispatch(setCartItems(payload));
+            }
             return prevItems;
         } else {
             // console.log('No saved localStorage Cart Items!')
@@ -71,12 +84,19 @@ export const getCartItems = (sessionUser) => async (dispatch) => {
     }
 }
 
-export default function cartReducer(state = {}, action) {
+const initialState = {
+    itemCount: {},
+    currItemDetails: []
+}
+
+export default function cartReducer(state = initialState, action) {
     switch(action.type) {
         case GET_CART_ITEMS: {
-            let newState = {};
-            // console.log(action.payload);
-            action.payload.forEach(item => newState[item.item_id] = item);
+            let newState = {...initialState};
+            console.log(action.payload);
+            newState.itemCount = {};
+            action.payload.prevItems.forEach(item => newState.itemCount[item.item_id] = item);
+            newState.currItemDetails = action.payload.cartItems;
             return newState;
         }
         case ADD_CART_ITEM: {

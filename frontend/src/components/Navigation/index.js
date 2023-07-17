@@ -10,7 +10,7 @@ import './Navigation.css';
 export default function Navigation({ isLoaded }) {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-    const cart = useSelector(state => Object.values(state.cart));
+    const cart = useSelector(state => Object.values(state.cart.itemCount));
 
     useEffect(() => {
         if (isLoaded) {

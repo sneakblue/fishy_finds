@@ -25,21 +25,13 @@ router.get('/bySub/:id', asyncHandler ( async(req, res) => {
 }));
 
 router.get('/byList/', asyncHandler ( async(req, res) => {
-    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-    // console.log(req.query)
     const array = req.query.array;
     const itemsList = [];
-    // array.forEach( async (id) => {
-    //     let item = await StoreItem.findByPk(id);
-    //     itemsList.push(item);
-    // })
     for (let i = 0; i < array.length; i++) {
         let id = array[i];
         let item = await StoreItem.findByPk(id);
         itemsList.push(item);
     }
-    console.log(array);
-    console.log(itemsList);
     return res.json(itemsList);
 }));
 
