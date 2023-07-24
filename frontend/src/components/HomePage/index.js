@@ -22,7 +22,7 @@ export default function HomePage() {
             <div className="homePage_main_div">
                 <h1>HomePage</h1>
                 <div className="categoryCards_parent_div">
-                    {categories.map(category => <CategoryCard categoryId={category.id} key={category.id}/>)}
+                    {categories.map(category => <CategoryCard categoryId={category.id}/>)}
                 </div>
             </div>
         </>

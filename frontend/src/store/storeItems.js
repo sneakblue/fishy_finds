@@ -39,6 +39,16 @@ export const getStoreItems = (id) => async (dispatch) => {
     }
 }
 
+export const getStoreItemsList = (ids) => async (dispatch) => {
+    let queryStr = `?array=${ids.shift()}`;
+    ids.forEach(id => queryStr+= `&array=${id}`);
+    const res = await csrfFetch(`/api/storeItems/byList/${queryStr}`);
+    if (res.ok) {
+        const storeItems = await res.json();
+        dispatch(setStoreItems(storeItems));
+    }
+}
+
 export default function storeItemsReducer(state = {}, action) {
     switch(action.type) {
         case LOAD_ITEMS: {

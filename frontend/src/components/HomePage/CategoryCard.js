@@ -26,7 +26,7 @@ export default function CategoryCard({ categoryId }) {
                     <h5 className="categoryCard_title">{category.title.toUpperCase()}</h5>
                 </Link>
                 {currCategories.map((cat) => (
-                    <Link to={`/subCat/${cat.id}`} className="subCat_title_link">
+                    <Link to={`/subCat/${cat.id}`} className="subCat_title_link" key={cat.title}>
                         <p>{cat.title}</p>
                     </Link>
                 ))}
@@ -41,7 +41,7 @@ export default function CategoryCard({ categoryId }) {
     }
 
     return (
-        <div className="categoryCard_main_div">
+        <div className="categoryCard_main_div" key={categoryId}>
             <div
                 className="categoryCard_titles_background_div"
                 onMouseEnter={() => setShowCategories(true)}

@@ -23,7 +23,9 @@ if (!isProduction) {
 }
 
 app.use(helmet({
-    contentSecurityPolicy: false
+    contentSecurityPolicy: false,
+    crossOriginResourcePolicy: false,
+    crossOriginEmbedderPolicy: false,
 }));
 
 app.use(

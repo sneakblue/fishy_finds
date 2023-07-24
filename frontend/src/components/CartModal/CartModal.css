@@ -1,0 +1,8 @@
+.cartModal_item--img {
+    height: 60px;
+}
+
+.cartModal_item_preview--div {
+    display: flex;
+    flex-direction: row;
+}
