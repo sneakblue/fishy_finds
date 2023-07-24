@@ -1,7 +1,6 @@
 .cartList-main-container--div {
     display: flex;
     flex-direction: column;
-    /* background-color: aqua; */
 }
 
 .cartList-item-img-container--div {
@@ -27,9 +26,6 @@
     flex-direction: row;
     align-items: center;
     width: 50%;
-    /* height: 100px; */
-    /* margin-left: 15px; */
-    /* border: 1px solid red; */
 }
 
 .cartList-item-remove--button {
@@ -47,7 +43,7 @@
     background-color: rgb(67, 100, 77);
 }
 
-..cartList-item-remove--button:active {
+.cartList-item-remove--button:active {
     background-color: rgb(43, 65, 50);
 }
 
@@ -59,7 +55,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* border: 1px solid blue; */
     height: 100%;
     width: 50%;
 }

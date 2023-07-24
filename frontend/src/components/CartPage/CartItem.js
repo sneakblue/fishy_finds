@@ -8,7 +8,6 @@ export default function CartItem ({item}) {
     const [ quantity, setQuantity ] = useState(item.quantity);
 
     const removeItemHandler = () => {
-        // console.log(id)
         dispatch(updateCartItem(sessionUser, item.id, 0));
     }
 

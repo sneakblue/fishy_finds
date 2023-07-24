@@ -7,7 +7,6 @@ import './CartPage.css';
 export default function CartPage() {
     const dispatch = useDispatch();
     const cartItemDetails = useSelector((state) => Object.values(state.cart));
-    // const cartItemDetails = useSelector((state) => state.cart.currItemDetails);
     const sessionUser = useSelector(state => state.session.user);
 
     useEffect(() => {
@@ -28,7 +27,7 @@ export default function CartPage() {
             </>
         )
     }
-    // console.log(cartItemCount);
+
     return (
         <div>
             <div className='navbar-spacer'/>
