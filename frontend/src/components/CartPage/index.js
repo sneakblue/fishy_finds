@@ -1,10 +1,18 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import CartList from './CartList';
+import { getCartItems } from '../../store/cart';
 import './CartPage.css';
 
 export default function CartPage() {
+    const dispatch = useDispatch();
     const cartItemCount = useSelector((state) => Object.values(state.cart.itemCount));
     const cartItemDetails = useSelector((state) => state.cart.currItemDetails);
+    const sessionUser = useSelector(state => state.session.user);
+
+    useEffect(() => {
+        dispatch(getCartItems(sessionUser));
+    }, [dispatch, sessionUser])
 
     let content;
     if (!cartItemCount.length) {
@@ -20,7 +28,7 @@ export default function CartPage() {
             </>
         )
     }
-    console.log(cartItemCount);
+    // console.log(cartItemCount);
     return (
         <div>
             <div className='navbar-spacer'/>

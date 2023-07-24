@@ -26,7 +26,7 @@ const changeCartItem = (cartItem) => {
 }
 
 export const updateCartItem = (sessionUser, item_id, quantity) => async (dispatch) => {
-    console.log('updated quantity: ' + quantity);
+    // console.log('updated quantity: ' + quantity);
     if (sessionUser) {
 
     } else {
@@ -38,14 +38,14 @@ export const updateCartItem = (sessionUser, item_id, quantity) => async (dispatc
                 let itemIdx;
                 for (let i = 0; i < itemPairs.length; i++) {
                     let itemPair = itemPairs[i].split('-');
-                    console.log('Iteration: ' + i);
-                    console.log(itemPair);
+                    // console.log('Iteration: ' + i);
+                    // console.log(itemPair);
                     if (Number(itemPair[0]) === item_id) {
-                        console.log('Item id match~~~~~~~~~~~~~~~~~~~')
+                        // console.log('Item id match~~~~~~~~~~~~~~~~~~~')
                         if (quantity <= 0) {
                             foundItem = true;
                             itemIdx = i;
-                            console.log('Found Item To Remove!!!!!!!!!!!!!!!!!!!!!!!!!1')
+                            // console.log('Found Item To Remove!!!!!!!!!!!!!!!!!!!!!!!!!1')
                         } else {
                             itemPair[1] = Number(quantity);
                             itemPairs[i] = itemPair.join('-');
@@ -55,8 +55,8 @@ export const updateCartItem = (sessionUser, item_id, quantity) => async (dispatc
                 }
                 if (foundItem) itemPairs.splice(itemIdx, 1);
                 cartItems = itemPairs.join(',');
-                console.log(itemIdx);
-                console.log(cartItems);
+                // console.log(itemIdx);
+                // console.log(cartItems);
                 localStorage.setItem('cartItems', cartItems);
                 let updatedItem = {
                     item_id,
@@ -88,8 +88,10 @@ export const addCartItem = (sessionUser, item_id, quantity) => async (dispatch) 
                 for (let i = 0; i < itemPairs.length; i++) {
                     let itemPair = itemPairs[i].split('-');
                     if (itemPair[0] === item_id) {
+                        console.log('Found matching ID ~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
                         itemPair[1] = Number(itemPair[1]) + quantity;
                         quantity = Number(itemPair[1]);
+                        console.log('Updated Quantity: ------> ' + quantity);
                         itemPairs[i] = itemPair.join('-');
                         foundItem = true;
                         break;
@@ -160,7 +162,7 @@ export default function cartReducer(state = initialState, action) {
         }
         case ADD_CART_ITEM: {
             let newState = {...state};
-            newState[action.payload.item_id] = action.payload;
+            newState.itemCount[action.payload.item_id] = action.payload;
             return newState;
         }
         case UPDATE_CART_ITEM: {
