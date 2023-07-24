@@ -29,7 +29,7 @@ export default function CartItem ({item}) {
                 <div className='cartList-item-title--div'>
                     <h5 className='cartList-item-name--header'>{item.name}</h5>
                     <button
-                        className="cartList-item-remove--buton"
+                        className="cartList-item-remove--button"
                         onClick={() => removeItemHandler()}
                     >Remove</button>
                 </div>

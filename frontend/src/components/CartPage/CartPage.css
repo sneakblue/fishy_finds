@@ -32,9 +32,23 @@
     /* border: 1px solid red; */
 }
 
-.cartList-item-remove--buton {
+.cartList-item-remove--button {
     margin: 20px;
     max-width: 100px;
+    background-color: rgb(5, 59, 21);
+    color: white;
+    border: 0;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.cartList-item-remove--button:hover {
+    background-color: rgb(67, 100, 77);
+}
+
+..cartList-item-remove--button:active {
+    background-color: rgb(43, 65, 50);
 }
 
 .cartList-item-name--header {
