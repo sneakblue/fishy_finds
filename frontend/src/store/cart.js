@@ -88,10 +88,10 @@ export const addCartItem = (sessionUser, item_id, quantity) => async (dispatch) 
                 for (let i = 0; i < itemPairs.length; i++) {
                     let itemPair = itemPairs[i].split('-');
                     if (itemPair[0] === item_id) {
-                        console.log('Found matching ID ~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+                        // console.log('Found matching ID ~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
                         itemPair[1] = Number(itemPair[1]) + quantity;
                         quantity = Number(itemPair[1]);
-                        console.log('Updated Quantity: ------> ' + quantity);
+                        // console.log('Updated Quantity: ------> ' + quantity);
                         itemPairs[i] = itemPair.join('-');
                         foundItem = true;
                         break;
@@ -104,11 +104,22 @@ export const addCartItem = (sessionUser, item_id, quantity) => async (dispatch) 
             }
             localStorage.setItem('cartItems', cartItems);
         } else {
+            // console.log('------------- Empty Cart!! New Item Added!! --------------')
             cartItems = `${item_id}-${quantity}`;
             localStorage.setItem('cartItems', cartItems);
         }
-        const newItem = {item_id, quantity};
-        dispatch(setCartItem(newItem));
+        const res = await csrfFetch(`/api/storeItems/${item_id}`);
+        // console.log('---------- Data Fetched!! ----------------');
+        // console.log(res.ok);
+        if (res.ok) {
+            // console.log('res OK!!!!!!!~~~~~~~~~~~~~~')
+            const newItem = await res.json();
+            newItem.quantity = quantity;
+            // console.log(newItem);
+            // console.log('------------------------------');
+            dispatch(setCartItem(newItem));
+        }
+        // const newItem = {item_id, quantity};
     }
 }
 
@@ -132,9 +143,13 @@ export const getCartItems = (sessionUser) => async (dispatch) => {
             // console.log(prevItems);
             if (res.ok) {
                 const cartItems = await res.json();
-                console.log(cartItems);
+                // console.log(cartItems);
+                // console.log(prevItems);
+                prevItems.forEach((item, idx) => {
+                    cartItems[idx].quantity = Number(item.quantity);
+                })
                 let payload = {prevItems, cartItems};
-                console.log(payload);
+                // console.log(payload);
                 dispatch(setCartItems(payload));
             }
             return prevItems;
@@ -146,8 +161,8 @@ export const getCartItems = (sessionUser) => async (dispatch) => {
 }
 
 const initialState = {
-    itemCount: {},
-    currItemDetails: []
+    // itemCount: {},
+    // currItemDetails: []
 }
 
 export default function cartReducer(state = initialState, action) {
@@ -155,14 +170,14 @@ export default function cartReducer(state = initialState, action) {
         case GET_CART_ITEMS: {
             let newState = {...initialState};
             // console.log(action.payload);
-            newState.itemCount = {};
-            action.payload.prevItems.forEach(item => newState.itemCount[item.item_id] = item);
-            newState.currItemDetails = action.payload.cartItems;
+            // newState.itemCount = {};
+            action.payload.cartItems.forEach(item => newState[item.id] = item);
+            // newState.currItemDetails = action.payload.cartItems;
             return newState;
         }
         case ADD_CART_ITEM: {
             let newState = {...state};
-            newState.itemCount[action.payload.item_id] = action.payload;
+            newState[action.payload.id] = action.payload;
             return newState;
         }
         case UPDATE_CART_ITEM: {
@@ -173,16 +188,17 @@ export default function cartReducer(state = initialState, action) {
             //     newState.itemCount[action.payload.item_id].quantity = action.payload.quantity;
             // }
             if (action.payload.quantity > 0) {
-                newState.itemCount[action.payload.item_id] = action.payload.quantity;
+                newState[action.payload.item_id].quantity = action.payload.quantity;
             }
             else {
-                delete newState.itemCount[action.payload.item_id];
-                for (let i = 0; i < newState.currItemDetails.length; i++) {
-                    if (newState.currItemDetails[i].id === action.payload.item_id) {
-                        newState.currItemDetails.splice(i, 1);
-                        break;
-                    }
-                }
+                // delete newState.itemCount[action.payload.item_id];
+                delete newState[action.payload.item_id];
+                // for (let i = 0; i < newState.currItemDetails.length; i++) {
+                //     if (newState.currItemDetails[i].id === action.payload.item_id) {
+                //         newState.currItemDetails.splice(i, 1);
+                //         break;
+                //     }
+                // }
             }
             return newState;
         }

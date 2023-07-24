@@ -6,8 +6,8 @@ import './CartPage.css';
 
 export default function CartPage() {
     const dispatch = useDispatch();
-    const cartItemCount = useSelector((state) => Object.values(state.cart.itemCount));
-    const cartItemDetails = useSelector((state) => state.cart.currItemDetails);
+    const cartItemDetails = useSelector((state) => Object.values(state.cart));
+    // const cartItemDetails = useSelector((state) => state.cart.currItemDetails);
     const sessionUser = useSelector(state => state.session.user);
 
     useEffect(() => {
@@ -15,7 +15,7 @@ export default function CartPage() {
     }, [dispatch, sessionUser])
 
     let content;
-    if (!cartItemCount.length) {
+    if (!cartItemDetails.length) {
         content = (
             <>
                 <p>Your shopping cart is empty. If you see something you would like to add to your shopping cart when shopping, click Add to Cart.</p>
@@ -24,7 +24,7 @@ export default function CartPage() {
     } else {
         content = (
             <>
-                <CartList cartItemCount={cartItemCount} cartItemDetails={cartItemDetails} />
+                <CartList cartItemDetails={cartItemDetails} />
             </>
         )
     }
