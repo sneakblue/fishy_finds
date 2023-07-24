@@ -1,11 +1,19 @@
-import { useEffect } from "react";
-// import { useSelector, useDispatch } from 'react-redux';
+// import { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 // import { getStoreItemsList } from '../../store/storeItems';
+import { updateCartItem } from '../../store/cart';
 
 
 export default function CartList({cartItemCount, cartItemDetails}) {
-
+    const dispatch = useDispatch();
+    const sessionUser = useSelector(state => state.session.user);
     // console.log(cartItemDetails.length);
+
+    const removeItemHandler = (id) => {
+        console.log(id)
+        dispatch(updateCartItem(sessionUser, id, 0));
+    }
+
     return (
         <div className="cartList-main-container--div">
             {cartItemDetails.map((item, idx) => {
@@ -18,6 +26,7 @@ export default function CartList({cartItemCount, cartItemDetails}) {
                                 alt='product'
                             />
                             <h5>{item.name}</h5>
+                            <button onClick={() => removeItemHandler(item.id)}>Remove</button>
                             <h3>Quantity: {cartItemCount[idx].quantity}</h3>
                         </div>
                     </div>
