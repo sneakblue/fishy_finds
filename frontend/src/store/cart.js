@@ -26,6 +26,7 @@ const changeCartItem = (cartItem) => {
 }
 
 export const updateCartItem = (sessionUser, item_id, quantity) => async (dispatch) => {
+    console.log('updated quantity: ' + quantity);
     if (sessionUser) {
 
     } else {
@@ -37,10 +38,14 @@ export const updateCartItem = (sessionUser, item_id, quantity) => async (dispatc
                 let itemIdx;
                 for (let i = 0; i < itemPairs.length; i++) {
                     let itemPair = itemPairs[i].split('-');
-                    if (itemPair[0] === item_id) {
+                    console.log('Iteration: ' + i);
+                    console.log(itemPair);
+                    if (Number(itemPair[0]) === item_id) {
+                        console.log('Item id match~~~~~~~~~~~~~~~~~~~')
                         if (quantity <= 0) {
                             foundItem = true;
                             itemIdx = i;
+                            console.log('Found Item To Remove!!!!!!!!!!!!!!!!!!!!!!!!!1')
                         } else {
                             itemPair[1] = Number(quantity);
                             itemPairs[i] = itemPair.join('-');
@@ -50,6 +55,8 @@ export const updateCartItem = (sessionUser, item_id, quantity) => async (dispatc
                 }
                 if (foundItem) itemPairs.splice(itemIdx, 1);
                 cartItems = itemPairs.join(',');
+                console.log(itemIdx);
+                console.log(cartItems);
                 localStorage.setItem('cartItems', cartItems);
                 let updatedItem = {
                     item_id,
