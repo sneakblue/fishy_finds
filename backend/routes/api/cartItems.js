@@ -52,10 +52,15 @@ router.get('/:userId', asyncHandler( async (req, res) => {
     const userItems = await CartItem.findAll({
         where: {
             user_id: userId
-        },
-        include: StoreItem
+        }
     });
-
+    let storeItems = [];
+    for (let i = 0; i < userItems.length; i++) {
+        let item = userItems[i];
+        let storeItem = await StoreItem.findByPk(item.item_id);
+        storeItems.push(storeItem);
+    }
+    return res.json({userItems, storeItems});
 }));
 
 module.exports = router;

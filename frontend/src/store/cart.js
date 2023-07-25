@@ -34,8 +34,27 @@ export const updateCartItem = (sessionUser, item_id, quantity) => async (dispatc
             });
 
             if (res.ok) {
-                
-                dispatch()
+                let updatedItem = {
+                    item_id,
+                    quantity
+                }
+                dispatch(changeCartItem(updatedItem));
+            }
+        } else {
+            const res = await csrfFetch('/api/cartItems/addItem', {
+                method: 'POST',
+                body: JSON.stringify({
+                    user_id: sessionUser.id,
+                    item_id,
+                    quantity
+                })
+            });
+            if (res.ok) {
+                let updatedItem = {
+                    item_id,
+                    quantity
+                }
+                dispatch(changeCartItem(updatedItem));
             }
         }
     } else {
@@ -147,7 +166,15 @@ export const addCartItem = (sessionUser, item_id, quantity) => async (dispatch) 
 
 export const getCartItems = (sessionUser) => async (dispatch) => {
     if (sessionUser) {
-
+        const res = await csrfFetch(`/api/cartItems/${sessionUser.id}`);
+        if (res.ok) {
+            const cartItems = await res.json();
+            console.log(cartItems);
+            cartItems.storeItems.forEach((item, idx) => {
+                item.quantity = cartItems.userItems[idx].quantity;
+            })
+            dispatch(setCartItems(cartItems.storeItems))
+        }
     } else {
         const cartItems = localStorage.getItem('cartItems');
         if (cartItems) {
@@ -193,7 +220,7 @@ export default function cartReducer(state = initialState, action) {
             let newState = {...initialState};
             // console.log(action.payload);
             // newState.itemCount = {};
-            action.payload.cartItems.forEach(item => newState[item.id] = item);
+            action.payload.forEach(item => newState[item.id] = item);
             // newState.currItemDetails = action.payload.cartItems;
             return newState;
         }
