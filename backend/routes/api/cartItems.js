@@ -4,6 +4,7 @@ const { CartItem, StoreItem } = require('../../db/models');
 
 const router = express.Router();
 
+// Add Item to Cart
 router.post('/addItem', asyncHandler( async (req, res) => {
     const { user_id, item_id, quantity } = req.body;
     const updateItem = await CartItem.findOne({
@@ -35,6 +36,22 @@ router.post('/addItem', asyncHandler( async (req, res) => {
     return res.json(cartItem);
 }));
 
+// Update Quantity of Cart Item
+router.put('/updateItem', asyncHandler( async (req, res) => {
+    const { user_id, item_id, quantity } = req.body;
+    const updateItem = await CartItem.findOne({
+        where: {
+            user_id,
+            item_id
+        }
+    });
+    await updateItem.update({
+        quantity: quantity
+    });
+    return res.json({ message: 'Successfully updated!! '});
+}));
+
+// Delete a single item from User Cart
 router.delete('/user/:userId/item/:itemId', asyncHandler( async (req, res) => {
     const { userId, itemId } = req.params;
     await CartItem.destroy({

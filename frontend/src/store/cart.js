@@ -41,8 +41,8 @@ export const updateCartItem = (sessionUser, item_id, quantity) => async (dispatc
                 dispatch(changeCartItem(updatedItem));
             }
         } else {
-            const res = await csrfFetch('/api/cartItems/addItem', {
-                method: 'POST',
+            const res = await csrfFetch('/api/cartItems/updateItem', {
+                method: 'PUT',
                 body: JSON.stringify({
                     user_id: sessionUser.id,
                     item_id,
