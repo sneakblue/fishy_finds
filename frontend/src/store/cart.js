@@ -28,7 +28,16 @@ const changeCartItem = (cartItem) => {
 export const updateCartItem = (sessionUser, item_id, quantity) => async (dispatch) => {
     // console.log('updated quantity: ' + quantity);
     if (sessionUser) {
+        if (quantity <= 0) {
+            const res = await csrfFetch(`/api/cartItems/user/${sessionUser.id}/item/${item_id}`, {
+                method: 'DELETE'
+            });
 
+            if (res.ok) {
+                
+                dispatch()
+            }
+        }
     } else {
         let cartItems = localStorage.getItem('cartItems');
         if (cartItems) {
@@ -78,7 +87,20 @@ export const updateCartItem = (sessionUser, item_id, quantity) => async (dispatc
 
 export const addCartItem = (sessionUser, item_id, quantity) => async (dispatch) => {
     if (sessionUser) {
+        const res = await csrfFetch('/api/cartItems/addItem', {
+            method: 'POST',
+            body: JSON.stringify({
+                user_id: sessionUser.id,
+                item_id,
+                quantity
+            })
+        });
 
+        if (res.ok) {
+            const cartItemInfo = await res.json();
+            cartItemInfo.userCartItem.quantity = cartItemInfo.newQuantity;
+            dispatch(setCartItem(cartItemInfo.userCartItem));
+        }
     } else {
         let cartItems = localStorage.getItem('cartItems');
         if (cartItems) {
