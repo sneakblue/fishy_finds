@@ -56,7 +56,7 @@ export default function LoginForm({ setShowModal }) {
                 Password<p className='required-asterisk'>*</p>
             </label>
             <input
-                type='text'
+                type='password'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className='loginForm_input'
