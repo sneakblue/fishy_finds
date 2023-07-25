@@ -3,6 +3,13 @@ import { csrfFetch } from "./csrf";
 const GET_CART_ITEMS = 'cart/load_items';
 const ADD_CART_ITEM = 'cart/add_item';
 const UPDATE_CART_ITEM = 'cart/update_item';
+const CLEAR_CART = 'cart/clear_cart_items';
+
+const clearCartItems = () => {
+    return {
+        type: CLEAR_CART
+    }
+}
 
 const setCartItems = (payload) => {
     return {
@@ -23,6 +30,10 @@ const changeCartItem = (cartItem) => {
         type: UPDATE_CART_ITEM,
         payload: cartItem
     }
+}
+
+export const resetCart = () => async (dispatch) => {
+    dispatch(clearCartItems());
 }
 
 export const updateCartItem = (sessionUser, item_id, quantity) => async (dispatch) => {
@@ -199,7 +210,7 @@ export const getCartItems = (sessionUser) => async (dispatch) => {
                 })
                 let payload = {prevItems, cartItems};
                 // console.log(payload);
-                dispatch(setCartItems(payload));
+                dispatch(setCartItems(cartItems));
             }
             return prevItems;
         } else {
@@ -249,6 +260,10 @@ export default function cartReducer(state = initialState, action) {
                 //     }
                 // }
             }
+            return newState;
+        }
+        case CLEAR_CART: {
+            let newState = {...initialState};
             return newState;
         }
         default:

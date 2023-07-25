@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { login } from '../../store/session';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { getCartItems } from '../../store/cart';
 import './LoginFormModal.css';
 
 export default function LoginForm({ setShowModal }) {

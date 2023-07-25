@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Modal } from '../../context/Modal';
 import LoginForm from './LoginForm';
 import { logout } from '../../store/session';
+import { resetCart } from '../../store/cart';
 
 export default function LoginFormModal() {
     const dispatch = useDispatch();
@@ -11,6 +12,7 @@ export default function LoginFormModal() {
 
     const handleLogout = () => {
         dispatch(logout());
+        dispatch(resetCart());
     }
 
     let content;
@@ -43,10 +45,6 @@ export default function LoginFormModal() {
             </div>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    {/* <div className='login-modal-headline--container'>
-                        <h6 className='login-modal--headline'>Sign-in to your Fishy Finds account</h6>
-                    </div>
-                    <LoginForm setShowModal={setShowModal}/> */}
                     {content}
                 </Modal>
             )}
