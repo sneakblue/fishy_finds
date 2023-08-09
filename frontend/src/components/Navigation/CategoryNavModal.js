@@ -4,14 +4,13 @@ import { Link } from 'react-router-dom';
 import { CategoryModal } from "../../context/Modal";
 import './Navigation.css';
 
-export default function CatgoryNavModal({}) {
+export default function CatgoryNavModal() {
     const [ showModal, setShowModal ] = useState(false);
     const categories = useSelector(state => Object.values(state.categories));
-    // console.log(categories)
 
     return (
         <>
-            <div onClick={() => setShowModal(true)}>
+            <div onClick={() => setShowModal(!showModal)}>
                 <i className='fas fa-bars navbar-category-menu--icon'/>
             </div>
             {showModal && (

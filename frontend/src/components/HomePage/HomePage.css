@@ -10,7 +10,9 @@
 
 .categoryCard_main_div {
     display: flex;
-    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: column;
+    position: relative;
     background-color: white;
     border: 1px solid black;
     width: 20%;
@@ -20,12 +22,19 @@
     overflow: hidden;
 }
 
+.categoryCard_background--img {
+    height: 100%;
+    position:absolute;
+    /* z-index: -1; */
+}
+
 .categoryCard_titles_background_div {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     padding: 10px 0px 10px 0px;
+    z-index: 2;
 }
 
 .categoryCard_title {

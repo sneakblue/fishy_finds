@@ -42,6 +42,11 @@ export default function CategoryCard({ categoryId }) {
 
     return (
         <div className="categoryCard_main_div" key={categoryId}>
+            <img
+                className="categoryCard_background--img"
+                src={category.imageUrl}
+                alt="categoryCard-background"
+            />
             <div
                 className="categoryCard_titles_background_div"
                 onMouseEnter={() => setShowCategories(true)}
