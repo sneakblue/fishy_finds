@@ -25,3 +25,10 @@
     height: 100vh;
     background-color: white;
 }
+
+#modal-category-content {
+    position: absolute;
+    left: 0;
+    height: 100vh;
+    background-color: white;
+}
