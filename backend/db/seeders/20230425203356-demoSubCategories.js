@@ -126,7 +126,7 @@ module.exports = {
             {
                 title: 'Spinning Combos',
                 category_id: 4,
-                imageUrl: 'https://www.sportsmans.com/medias/pflueger-president-spinning-combo-7ft-medium-2pc-1538900-2.jpg?context=bWFzdGVyfGltYWdlc3w2MjY2M3xpbWFnZS9qcGVnfGltYWdlcy9oZmYvaGE0Lzk3Mzg2MDI3NzQ1NTguanBnfGUzY2I0NDdhOTcwMThhODM5MTg1ZWRjOWM3MDBmZjUwMzMxOGFiOWExY2M1NWNiM2ZkMjQxMTI0YTBkODk0NTI'
+                imageUrl: 'https://i5.walmartimages.com/asr/0d58ac35-c405-432b-b724-025a56004e45.ddecf2bd88f77eb5f81da64cfc9d4087.png'
             },
             {
                 title: 'Spincast Combos',
@@ -136,7 +136,7 @@ module.exports = {
             {
                 title: 'Saltwater Combos',
                 category_id: 4,
-                imageUrl: 'https://www.sportsmans.com/medias/penn-wrath-saltwater-spinning-combo-8ft-medium-heavy-2pc-1538968-3.jpg?context=bWFzdGVyfGltYWdlc3w0NDA5N3xpbWFnZS9qcGVnfGltYWdlcy9oMTgvaDlmLzk3Mzg2MzQ0OTM5ODIuanBnfDU4OTQ5ZGIyOWRiNmQ2Mzc3ZTRkMzIxYzg3NzFjN2U3OWQ3OTk2YTgzODNiNzAxMmFmZGIyNWMxYTc2ZGI3ODI'
+                imageUrl: 'https://i5.walmartimages.com/asr/fdb7860d-181b-421f-92c4-3f52721ee56a_1.b478d2634a5f9925427abf91cd28a4b4.jpeg'
             },
             {
                 title: 'Fly Outfits',
@@ -230,7 +230,7 @@ module.exports = {
             },
             {
                 title: 'Fishing Apparel',
-                category_id: 10,
+                category_id: 9,
                 imageUrl: 'https://ae01.alicdn.com/kf/HTB1WzxLNXXXXXaYXFXXq6xXFXXXQ/Free-Shipping-Brand-Men-Hiking-climbing-Cycling-Fishing-Clothes-Anti-UV-Breathable-Quick-drying-Professional-Man.jpg'
             }
         ], {});
