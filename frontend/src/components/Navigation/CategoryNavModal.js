@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom';
 import { CategoryModal } from "../../context/Modal";
 import './Navigation.css';
 
-export default function CatgoryNavModal({}) {
+export default function CatgoryNavModal() {
     const [ showModal, setShowModal ] = useState(false);
     const categories = useSelector(state => Object.values(state.categories));
-    // console.log(categories)
 
     return (
         <>
