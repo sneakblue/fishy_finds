@@ -57,3 +57,20 @@
     justify-content: center;
     align-items: center;
 }
+
+.category-nav-modal--div {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.category-nav--link {
+    color: black;
+    padding: 10px;
+    transition: all 0.5s;
+}
+
+.category-nav--link:hover {
+    background-color: rgb(67, 100, 77);
+    color: white;
+}
