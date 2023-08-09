@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 // import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
+import CategoryNavModal from './CategoryNavModal';
 // import CartModal from '../CartModal';
 import { getCartItems } from '../../store/cart';
 import './Navigation.css';
@@ -38,8 +39,9 @@ export default function Navigation({ isLoaded }) {
 
     return (
         <div className='navbar-main--div'>
-            <div>
-                <i className='fas fa-bars navbar-category-menu--icon'/>
+            <div className='navbar-category-title--div'>
+                {/* <i className='fas fa-bars navbar-category-menu--icon'/> */}
+                <CategoryNavModal />
                 <NavLink exact to="/" className='navbar-site--title'>Fishy Finds</NavLink>
             </div>
             <div className='navbar-login-cart--div'>

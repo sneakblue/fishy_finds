@@ -8,6 +8,10 @@
     border-bottom: 1px solid rgba(115, 115, 115, 0.397);
 }
 
+.navbar-category-title--div {
+    display: flex;
+}
+
 .navbar-category-menu--icon {
     font-size: 25px;
     padding-right: 15px;
@@ -49,4 +53,7 @@
 
 .navbar-site--title {
     color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
