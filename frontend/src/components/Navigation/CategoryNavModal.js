@@ -11,7 +11,7 @@ export default function CatgoryNavModal({}) {
 
     return (
         <>
-            <div onClick={() => setShowModal(true)}>
+            <div onClick={() => setShowModal(!showModal)}>
                 <i className='fas fa-bars navbar-category-menu--icon'/>
             </div>
             {showModal && (

@@ -2,16 +2,52 @@
 
 }
 
+.categoryPage-banner-container--div {
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    object-fit: cover;
+}
+
+.categoryPage-category-banner--img {
+    position: absolute;
+    opacity: 0.9;
+}
+
+.categoryPage-title--header {
+    z-index: 2;
+    color: white;
+    font-size: 35px;
+}
+
 .categoryPage-subCategory-links-list--div {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.categoryPage-subCategory--img {
+    height: 150px;
+}
+
+.categoryPage-subCategory-title--p {
+    padding: 8px;
 }
 
 .categoryPage-subCategory--link {
     background-color: rgb(5, 59, 21);
+    display: flex;
+    flex-direction: column;
     color: white;
-    padding: 10px;
+    padding: 3px;
     margin: 10px;
+    border-radius: 5px;
     transition: all 0.3s;
 }
 

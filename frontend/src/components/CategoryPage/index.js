@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getCategories } from '../../store/categories';
-import { getSubCategories, getSubCategory } from '../../store/subCategories';
+import { getSubCategories } from '../../store/subCategories';
 import './CategoryPage.css';
 
 export default function CategoryPage() {
@@ -14,12 +14,19 @@ export default function CategoryPage() {
     useEffect(() => {
         dispatch(getCategories());
         dispatch(getSubCategories());
-    }, [])
+    }, [dispatch])
 
     return (
         <div className='categoryPage-main-container--div'>
             <div className='navbar-spacer'/>
-            <h2>{category?.title}</h2>
+            <div className='categoryPage-banner-container--div'>
+                <img
+                    alt='categoryPage-banner'
+                    className='categoryPage-category-banner--img'
+                    src={category?.imageUrl}
+                />
+                <h2 className='categoryPage-title--header'>{category?.title}</h2>
+            </div>
             <div className='categoryPage-subCategory-links-list--div'>
                 {subCategories?.map(subCategory => {
                     if (subCategory.category_id === Number(id)) {
@@ -28,9 +35,18 @@ export default function CategoryPage() {
                                 to={`/subCat/${subCategory.id}`}
                                 className='categoryPage-subCategory--link'
                             >
-                                {subCategory.title}
+                                <img
+                                    src={subCategory.imageUrl}
+                                    alt='categoryPage-subCategory'
+                                    className='categoryPage-subCategory--img'
+                                />
+                                <p className='categoryPage-subCategory-title--p'>
+                                    {subCategory.title.toUpperCase()}
+                                </p>
                             </Link>
                         )
+                    } else {
+                        return <></>
                     }
                 })}
             </div>
