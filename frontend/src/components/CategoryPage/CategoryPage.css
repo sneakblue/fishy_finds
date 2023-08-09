@@ -1,0 +1,20 @@
+.categoryPage-main-container--div {
+
+}
+
+.categoryPage-subCategory-links-list--div {
+    display: flex;
+    flex-direction: row;
+}
+
+.categoryPage-subCategory--link {
+    background-color: rgb(5, 59, 21);
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    transition: all 0.3s;
+}
+
+.categoryPage-subCategory--link:hover {
+    background-color: rgb(67, 100, 77);
+}

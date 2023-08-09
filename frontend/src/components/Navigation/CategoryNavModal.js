@@ -7,7 +7,7 @@ import './Navigation.css';
 export default function CatgoryNavModal({}) {
     const [ showModal, setShowModal ] = useState(false);
     const categories = useSelector(state => Object.values(state.categories));
-    console.log(categories)
+    // console.log(categories)
 
     return (
         <>
