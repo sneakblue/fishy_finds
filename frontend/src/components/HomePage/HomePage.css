@@ -20,13 +20,13 @@
     margin: 15px;
     border-radius: 5px;
     overflow: hidden;
+    background-size: cover;
 }
 
-.categoryCard_background--img {
+/* .categoryCard_background--img {
     height: 100%;
     position:absolute;
-    /* z-index: -1; */
-}
+} */
 
 .categoryCard_titles_background_div {
     display: flex;
@@ -34,7 +34,7 @@
     width: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     padding: 10px 0px 10px 0px;
-    z-index: 2;
+    /* z-index: 2; */
 }
 
 .categoryCard_title {

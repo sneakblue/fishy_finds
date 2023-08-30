@@ -7,6 +7,7 @@ import CategoryNavModal from './CategoryNavModal';
 // import CartModal from '../CartModal';
 import { getCartItems } from '../../store/cart';
 import './Navigation.css';
+import logo from '../../images/fishy-logo.png';
 
 export default function Navigation({ isLoaded }) {
     const dispatch = useDispatch();
@@ -42,7 +43,13 @@ export default function Navigation({ isLoaded }) {
             <div className='navbar-category-title--div'>
                 {/* <i className='fas fa-bars navbar-category-menu--icon'/> */}
                 <CategoryNavModal />
-                <NavLink exact to="/" className='navbar-site--title'>Fishy Finds</NavLink>
+                <NavLink exact to="/" className='navbar-site--title'>
+                    <img
+                        className='navbar-logo--img'
+                        src={logo}
+                    />
+                    Fishy Finds
+                </NavLink>
             </div>
             <div className='navbar-login-cart--div'>
                 <LoginFormModal />

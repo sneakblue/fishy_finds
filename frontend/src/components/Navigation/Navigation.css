@@ -6,7 +6,12 @@
     justify-content: space-between;
     background-color: white;
     border-bottom: 1px solid rgba(115, 115, 115, 0.397);
-    z-index: 3;
+    /* z-index: 3; */
+}
+
+.navbar-logo--img {
+    height: 30px;
+    margin-right: 10px;
 }
 
 .navbar-category-title--div {

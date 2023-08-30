@@ -29,7 +29,6 @@
 #modal-category-content {
     position: absolute;
     left: 0;
-    top: 20px;
-    height: auto;
+    height: 100vh;
     background-color: white;
 }
