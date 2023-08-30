@@ -86,6 +86,222 @@ module.exports = {
                 imageUrl: 'https://assets.basspro.com/image/upload/c_limit,dpr_1.0,f_auto,h_1263,q_auto,w_1300/c_limit,h_1263,w_1300/v1/ProductImages/100/master1_100828771_main?pgw=1&pgwact=1'
             },
             {
+                name: "Offshore Angler Sea Lion Spinning Reel",
+                manufacturer: "Offshore Angler",
+                price: 59.99,
+                description: "Saltwater fishing doesn't have to be expensive. Take this Offshore Angler™ Sea Lion™ Spinning Reel, for instance. Built saltwater tough, it's priced to please. Its 5-bearing system assures smooth performance and even includes our Powerlock™ instant anti-reverse. This dependable workhorse boasts corrosion resistant carbon composite frame and rotor, a strong double anodized aluminum spool, and a stainless steel main shaft. Once the hook is set, this baby uses a smooth and powerful 10 disk drag stack to slow tough saltwater sluggers. Other features include an anodized aluminum handle, a solid stainless steel bail wire, and an oversized, hard-chrome-plated line roller. The Sea Lion is a lot of reel for the money, and we're not lyin'.",
+                details: 'Retrieve-Left/Right,Gear Ratio-4.9:1,Description-5000 Size,Model Number-SLS50,Ball Bearings-4+1,Max Drag-35 Lbs.,Reel Weight(oz)-14.5,Line Capacity-14/220,Braid Capacity-50/210,Recovery-34.5" Per Turn',
+                imageUrl: 'https://assets.basspro.com/image/upload/c_limit,dpr_1.0,f_auto,h_1259,q_auto,w_1300/c_limit,h_1259,w_1300/v1/ProductImages/151/master1_1404300811438_main?pgw=1&pgwact=1'
+            },
+            {
+                name: "Shimano Sedona FI Spinning Reel",
+                manufacturer: "Shimano",
+                price: 79.99,
+                description: "The days of wishing for affordable performance are over. The Shimano® Sedona® FI Spinning Reel still offers a low price point, but a number of significant performance upgrades have made this reel a truly impressive value. With the addition of signature high-end Shimano features, the popular Sedona is now a lighter, stronger, faster, and more durable spinning reel than ever before. This solid reel now incorporates cold-forged Hagane® gears, a lighter G-Free body frame, and a super-light and smooth Magnumlite™ rotor on all models. In addition, all models except the 1000 size now have higher gear ratios and increased drag power. The Sedona still features its smooth, trouble-free 3+1 ball bearing system, but the great news is that it's now equipped to excel in a much wider range of applications, from light freshwater to heavy offshore duty. You'll marvel at its feel and handling – and especially the price!",
+                details: 'Retrieve-Left/Right,Gear Ratio-5.0:1,Description-1000 Size,Model Number-SE1000FI,Ball Bearings-3+1,Max Drag-7 Lbs.,Reel Weight(oz)-7.6,Line Capacity-6/110,Braid Capacity-15/85,Recovery-26" Per Turn',
+                imageUrl: 'https://assets.basspro.com/image/upload/c_limit,dpr_1.0,f_auto,h_1259,q_auto,w_1300/c_limit,h_1259,w_1300/v1/ProductImages/100/master1_100039963_main?pgw=1&pgwact=1'
+            },
+            {
+                name: "PENN Battle III Spinning Reel",
+                manufacturer: "PENN",
+                price: 119.95,
+                description: "Hard to imagine, but even with little to no price change, the PENN® Battle® III Spinning Reel is stronger, smoother, and more durable than previous versions. Feel free to subject it to all the braided-line abuse your saltwater exploits can muster! You'll find the Battle III up to the challenge, with its Full Metal Body and sideplate, braid-ready Superline Spool with line capacity rings, and power-driven CNC Gear™ Technology. The 5+1 sealed stainless steel ball bearing system keeps performance reliable, and PENN's legendary HT-100™ Carbon Fiber Drag Washers apply smooth, relentless pressure at all settings. When you're ready for battle, this is your reel!",
+                details: 'Retrieve-Left/Right,Gear Ratio-6.2:1,Description-T Handle,Model Number-BTLIII3000,Ball Bearings-5+1,Max Drag-15 Lbs.,Reel Weight(oz)-9.7,Line Capacity-10/165,Braid Capacity-20/180,Recovery-35" Per Turn',
+                imageUrl: 'https://assets.basspro.com/image/upload/c_limit,dpr_1.0,f_auto,h_1259,q_auto,w_1300/c_limit,h_1259,w_1300/v1/ProductImages/151/master2_100822845_main?pgw=1&pgwact=1'
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
+                name: "",
+                manufacturer: "",
+                price: 59.95,
+                description: "",
+                details: '',
+                imageUrl: ''
+            },
+            {
                 name: "",
                 manufacturer: "",
                 price: 59.95,
